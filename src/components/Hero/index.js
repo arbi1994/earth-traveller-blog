@@ -6,12 +6,16 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <StaticImage 
+        className={styles.bgImage}
         src="../../images/homepage-hero.jpg" 
         alt="" 
         placeholder="blurred"
         quality="100"
-        formats={["auto", "webp", "avif"]}
       />
+      <div className={styles.content}>
+        <p>not all those who wander are lost</p>
+        <strong>J.R.R. Tolkien</strong>
+      </div>
     </section>
   )
 }

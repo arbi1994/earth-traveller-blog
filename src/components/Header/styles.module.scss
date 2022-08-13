@@ -2,23 +2,21 @@
 @use "../../sass/base" as *;
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 18vh;
   @include flex(column, center, center);
   text-transform: uppercase;
   color: white;
   letter-spacing: 2px;
-  padding: 1em;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 2;
 }
 
 .navbar {
   flex: 0 0 80%;
-  min-height: 10vh;
   @include flex(row, center, center);
+  padding: 1em 0;
 
   &-left, &-right {
     flex: 0 0 34.6em;
@@ -38,5 +36,9 @@
     @include flex(row, start, center);
     text-align: center;
     margin: 0 calc(8 * 1vw);
+
+    img {
+      width: 5em;
+    }
   }
 }

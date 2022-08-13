@@ -4,12 +4,53 @@
 .hero {
   min-height: 100vh;
   overflow: hidden;
+  @include flex(row, center, center);
+  
+  @include media("<=desktop") {
+    padding-top: 5em;
+  }
 
-  img {
+  .bgImage {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     z-index: -2;
     object-fit: cover;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+    color: white;
+
+    p {
+      font-family: indie flower, arial, helvetica, sans-serif;
+      font-size: clamp(3.6rem, 6vw, 6.5rem);
+      text-transform: uppercase;
+      line-height: 85px;
+      letter-spacing: 8px;
+      padding: 0 2em;
+
+      @include media("<=SMdesktop") {
+        line-height: 80px;
+      }
+      @include media("<=tablet") {
+        line-height: 70px;
+      }
+      @include media("<=phoneL") {
+        line-height: 55px;
+        padding: 0;
+      }
+    }
+
+    strong {
+      font-family: karma, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      line-height: 2em;
+    }
   }
 }
