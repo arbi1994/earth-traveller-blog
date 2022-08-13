@@ -1,0 +1,60 @@
+@use './font-face' as *;
+@use '../abstracts' as *;
+
+a {
+  text-decoration: none;
+  font-family: $mukta;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6, a, button, p, li{
+  // font-family: $montserrat;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+h2{
+  font-weight: 700;
+}
+
+h3, h4, h5 {
+  font-weight: 600;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 65px;
+  font-weight: 400;
+
+  @include media("<=LGdesktop"){
+    line-height: 40px;
+  }
+
+  @include media("<=SMdesktop"){
+    line-height: 30px;
+  }
+}
+
+$font-sizes: (
+  h1: clamp(5rem, 6vw, 10rem),
+  h2: clamp(4rem, 5vw, 8rem),
+  h3: clamp(3rem, 4.5vw, 5rem),
+  h4: clamp(2.2rem, 2.5vw, 4rem),
+  h5: clamp(1.6rem, 2vw, 2.5rem),
+  h6: clamp(2rem, 1.5vw, 3rem),
+  a: clamp(1.4rem, 1.5vw, 2rem),
+  p: clamp(1.6rem, 1.7vw, 3rem),
+  dl: clamp(1.6rem, 1.5vw, 3rem),
+);
+
+@each $tag, $size in $font-sizes {
+  #{$tag} {
+    font-size: $size;
+  }
+}

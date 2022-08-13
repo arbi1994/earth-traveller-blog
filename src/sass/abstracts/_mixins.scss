@@ -1,0 +1,25 @@
+@use "./breakpoints" as *;
+
+@mixin grid($side-gap){
+  display: grid;
+  grid-template-columns: $side-gap repeat(auto-fit, minmax(235px, 1fr)) $side-gap;
+}
+
+@mixin flex($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin transition($param, $duration) {
+  transition: $param $duration cubic-bezier(0.68, -0.55, 0.27, 1.4);
+}
+
+@mixin hover-supported {
+  @media not all and (pointer: coarse){
+    &:hover {
+      @content;
+    }
+  }
+}

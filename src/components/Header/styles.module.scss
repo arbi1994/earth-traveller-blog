@@ -1,0 +1,42 @@
+@use '../../sass/abstracts/' as *;
+@use "../../sass/base" as *;
+
+.header {
+  width: 100%;
+  min-height: 18vh;
+  @include flex(column, center, center);
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 2px;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.navbar {
+  flex: 0 0 80%;
+  min-height: 10vh;
+  @include flex(row, center, center);
+
+  &-left, &-right {
+    flex: 0 0 34.6em;
+    padding: 11px 0px;
+    gap: 100px;
+  }
+
+  &-left {
+    @include flex(row, end, center);
+  }
+
+  &-right {
+    @include flex(row, start, center);
+  }
+
+  .logo {
+    @include flex(row, start, center);
+    text-align: center;
+    margin: 0 calc(8 * 1vw);
+  }
+}

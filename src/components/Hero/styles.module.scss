@@ -1,0 +1,15 @@
+@use '../../sass/abstracts/' as *;
+@use "../../sass/base" as *;
+
+.hero {
+  min-height: 100vh;
+  overflow: hidden;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    object-fit: cover;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  }
+}

@@ -1,19 +1,23 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "earth-traveller-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A travel blog to document all my travel adventures",
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^4.20.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",
+    "gatsby-plugin-sass": "^5.20.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-source-filesystem": "^4.20.0",
+    "gatsby-source-wordpress": "^6.20.0",
     "gatsby-transformer-sharp": "^4.20.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "sass": "^1.54.4"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
