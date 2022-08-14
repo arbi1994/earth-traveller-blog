@@ -18,6 +18,10 @@
   @include flex(row, center, center);
   padding: 1em 0;
 
+  a {
+    font-size: clamp(1.4rem, 1.5vw, 1.8rem),
+  }
+
   &-left, &-right {
     flex: 0 0 34.6em;
     padding: 11px 0px;

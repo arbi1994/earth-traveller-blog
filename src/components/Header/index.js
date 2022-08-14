@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as styles from './styles.module.scss'
-import { Link } from "gatsby"
 // components
 import Navbar from './Navbar'
 import Socials from './Socials'

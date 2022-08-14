@@ -1,0 +1,17 @@
+@use '../../sass/abstracts/' as *;
+
+.wrapper {
+  width: 5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @include flex(column, center, center);
+
+  li {
+    margin: 2em 0;
+
+    // a{
+    //   font-size: 0 !important;
+    // }
+  }
+}

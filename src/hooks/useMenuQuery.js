@@ -20,6 +20,5 @@ export const useMenuQuery = () => {
       }
     }
   `)
-
   return data
 }

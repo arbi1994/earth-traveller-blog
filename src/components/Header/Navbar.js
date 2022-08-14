@@ -12,7 +12,7 @@ const Navbar = ({ site, menu }) => {
     <nav className={styles.navbar}>
       <ul className={styles.navbarLeft}>
         {menuItems.nodes.slice(0, menuItems.nodes.length/2).map(({id, url, label}) => {
-          return <li id={id}><Link to={url}>{label}</Link></li>
+          return <li key={id}><Link to={url}>{label}</Link></li>
         })}
       </ul>
       <Link className={styles.logo} to="/">
@@ -20,7 +20,7 @@ const Navbar = ({ site, menu }) => {
       </Link>
       <ul className={styles.navbarRight}>
         {menuItems.nodes.slice(menuItems.nodes.length/2).map(({id, url, label}) => {
-          return <li id={id}><Link to={url}>{label}</Link></li>
+          return <li key={id}><Link to={url}>{label}</Link></li>
         })}
       </ul>
     </nav>
