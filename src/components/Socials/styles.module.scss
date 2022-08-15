@@ -9,9 +9,13 @@
 
   li {
     margin: 2em 0;
+  }
+}
 
-    // a{
-    //   font-size: 0 !important;
-    // }
+.icon {
+  color: white;
+
+  &:hover {
+    color: $lightBlue;
   }
 }

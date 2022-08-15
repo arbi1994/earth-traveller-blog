@@ -1,8 +1,6 @@
 import * as React from "react"
 // global styles
 import "../sass/index.scss"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 // components
 import Layout from "../components/layout"
 import Hero from '../components/Hero'

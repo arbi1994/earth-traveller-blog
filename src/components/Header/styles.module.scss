@@ -8,8 +8,7 @@
   width: 100%;
   @include flex(column, center, center);
   text-transform: uppercase;
-  color: white;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   z-index: 2;
 }
 
@@ -19,7 +18,14 @@
   padding: 1em 0;
 
   a {
-    font-size: clamp(1.4rem, 1.5vw, 1.8rem),
+    font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+    color: white;
+    font-weight: 600;
+
+    &:hover {
+      color: $lightBlue !important;
+      transition: all 0.15s linear;
+    }
   }
 
   &-left, &-right {
@@ -43,6 +49,12 @@
 
     img {
       width: 5em;
+      transition: width 0.35s ease;
     }
   }
 }
+
+.scrolled {
+  background: white;
+}
+

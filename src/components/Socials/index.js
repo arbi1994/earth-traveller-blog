@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 // icons
 import { AiOutlineInstagram } from "react-icons/ai"
 import { FaFacebookF } from "react-icons/fa"
@@ -7,14 +7,20 @@ import { FaTwitter } from "react-icons/fa"
 import { IconContext } from "react-icons"
 // styles
 import * as styles from "./styles.module.scss"
+import "./iconStyle.scss"
 
 const Socials = ({ socials }) => {
   const { menuItems } = socials
 
+  const displayedIcons = label => {
+    if (label === "Instagram") return <AiOutlineInstagram className="icon" />
+    if (label === "Facebook") return <FaFacebookF className="icon" />
+    if (label === "Twitter") return <FaTwitter className="icon" />
+  }
+
   return (
     <IconContext.Provider
       value={{
-        color: "white",
         size: "3em",
         title: "socials",
       }}
@@ -23,13 +29,7 @@ const Socials = ({ socials }) => {
         {menuItems.nodes.map(node => (
           <li key={node.id}>
             <a href={node.url} target="_blank" rel="noopener">
-              {node.label === "Instagram" ? (
-                <AiOutlineInstagram />
-              ) : node.label === "Facebook" ? (
-                <FaFacebookF />
-              ) : (
-                <FaTwitter />
-              )}
+              {displayedIcons(node.label)}
             </a>
           </li>
         ))}

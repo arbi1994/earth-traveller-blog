@@ -1,0 +1,9 @@
+@use '../../sass/abstracts/' as *;
+
+.icon {
+  color: white;
+
+  &:hover {
+    color: $lightBlue;
+  }
+}
