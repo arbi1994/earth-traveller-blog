@@ -1,0 +1,12 @@
+.menu-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 3em;
+  padding: 1em;
+
+  @include media(">SMdesktop") {
+    display: none;
+  }
+}

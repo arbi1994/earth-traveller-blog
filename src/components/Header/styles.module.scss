@@ -6,16 +6,42 @@
   top: 0;
   left: 0;
   width: 100%;
+  // min-height: 20vh;
   @include flex(column, center, center);
   text-transform: uppercase;
   letter-spacing: 3px;
   z-index: 2;
+  transition: min-height 0.35s ease;
+
+  @include media("<=SMdesktop") {
+    @include flex(row, space-between, center);
+    padding: 1em 2em;
+  }
+
+  .logo {
+    position: absolute;
+    height: 100%;
+    padding: 1em;
+    @include flex(row, center, center);
+
+    @include media("<=SMdesktop") {
+      display: block;
+    }
+
+    img {
+      transition: width 0.35s ease;
+    }
+  }
 }
 
 .navbar {
   flex: 0 0 80%;
   @include flex(row, center, center);
   padding: 1em 0;
+
+  @include media("<=SMdesktop") {
+    display: none;
+  }
 
   a {
     font-size: clamp(1.4rem, 1.5vw, 1.8rem);
@@ -29,32 +55,49 @@
   }
 
   &-left, &-right {
-    flex: 0 0 34.6em;
+    flex: 0 0 44.6em;
     padding: 11px 0px;
     gap: 100px;
   }
 
   &-left {
-    @include flex(row, end, center);
+    @include flex(row, start, center);
   }
 
   &-right {
-    @include flex(row, start, center);
-  }
-
-  .logo {
-    @include flex(row, start, center);
-    text-align: center;
-    margin: 0 calc(8 * 1vw);
-
-    img {
-      width: 5em;
-      transition: width 0.35s ease;
-    }
+    @include flex(row, end, center);
   }
 }
 
 .scrolled {
   background: white;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 3em;
+  padding: 1em 1em 0 0;
+  cursor: pointer;
+
+  @include media(">SMdesktop") {
+    display: none;
+  }
+}
+
+.menu-icon-scrolled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  font-size: 3em;
+  padding: 1em 1em 0 0;
+  cursor: pointer;
+
+  @include media(">SMdesktop") {
+    display: none;
+  }
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 // icons
 import { AiOutlineInstagram } from "react-icons/ai"
 import { FaFacebookF } from "react-icons/fa"

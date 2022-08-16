@@ -1,20 +1,10 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
+// styles
 import * as styles from "./styles.module.scss"
 import { Link } from "gatsby"
-// logo
-import Logo from "../../images/logo.svg"
-import LogoBlack from "../../images/logo_black.svg"
 
-const Navbar = ({ site, menu, scrollPosition }) => {
+const Navbar = ({ menu, scrollPosition }) => {
   const { menuItems } = menu
-  const { siteMetadata } = site
-  const logoRef = useRef()
-
-  useEffect(() => {
-    scrollPosition > 0
-      ? (logoRef.current.style.width = "4em")
-      : (logoRef.current.style.width = "5em")
-  }, [scrollPosition])
 
   return (
     <nav className={styles.navbar}>
@@ -32,13 +22,6 @@ const Navbar = ({ site, menu, scrollPosition }) => {
             </li>
           ))}
       </ul>
-      <Link className={styles.logo} to="/">
-        <img
-          ref={logoRef}
-          src={scrollPosition <= 0 ? Logo : LogoBlack}
-          alt={siteMetadata.title}
-        />
-      </Link>
       <ul className={styles.navbarRight}>
         {menuItems.nodes
           .slice(menuItems.nodes.length / 2)
