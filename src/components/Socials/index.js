@@ -5,17 +5,14 @@ import { FaFacebookF } from "react-icons/fa"
 import { FaTwitter } from "react-icons/fa"
 // icon context to provide inline styles
 import { IconContext } from "react-icons"
-// styles
-import * as styles from "./styles.module.scss"
-import "./iconStyle.scss"
 
-const Socials = ({ socials }) => {
+const Socials = ({ socials, socialsTheme }) => {
   const { menuItems } = socials
 
   const displayedIcons = label => {
-    if (label === "Instagram") return <AiOutlineInstagram className="icon" />
-    if (label === "Facebook") return <FaFacebookF className="icon" />
-    if (label === "Twitter") return <FaTwitter className="icon" />
+    if (label === "Instagram") return <AiOutlineInstagram className={socialsTheme.color} />
+    if (label === "Facebook") return <FaFacebookF className={socialsTheme.color} />
+    if (label === "Twitter") return <FaTwitter className={socialsTheme.color} />
   }
 
   return (
@@ -25,7 +22,7 @@ const Socials = ({ socials }) => {
         title: "socials",
       }}
     >
-      <ul className={styles.wrapper}>
+      <ul className={socialsTheme.positionClass}>
         {menuItems.nodes.map(node => (
           <li key={node.id}>
             <a href={node.url} target="_blank" rel="noopener">

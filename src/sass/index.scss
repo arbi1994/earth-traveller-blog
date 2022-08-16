@@ -1,5 +1,5 @@
-@use './abstracts';
-@use './base';
+@use './abstracts' as *;
+@use './base' as *;
 
 * {
   margin: 0;
@@ -23,4 +23,42 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.primary-icon-wrapper {
+  width: 5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @include flex(column, center, center);
+
+  li {
+    padding: 2em 0;
+  }
+}
+
+.secondary-icon-wrapper {
+  width: 5em;
+  position: fixed;
+  bottom: calc(100/2);
+  right: 0;
+  @include flex(column, center, center);
+
+  li {
+    padding: 2em 0;
+  }
+}
+
+.primary-color {
+  color: white;
+}
+
+.secondary-color {
+  color: black;
+}
+
+.primary-color, .secondary-color {
+  &:hover {
+    color: $lightBlue;
+  }
 }

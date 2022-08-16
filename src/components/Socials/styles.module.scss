@@ -8,14 +8,6 @@
   @include flex(column, center, center);
 
   li {
-    margin: 2em 0;
-  }
-}
-
-.icon {
-  color: white;
-
-  &:hover {
-    color: $lightBlue;
+    padding: 2em 0;
   }
 }

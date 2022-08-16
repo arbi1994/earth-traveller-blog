@@ -3,15 +3,29 @@ import * as React from "react"
 import "../sass/index.scss"
 // components
 import Layout from "../components/layout"
-import Hero from '../components/Hero'
+import Hero from "../components/Hero"
 // import Seo from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    {/* <Seo title="Home" /> */}
-    <Hero />
-  </Layout>
-)
+const IndexPage = () => {
+  // theme used in the homepage only
+  const socialsTheme1 = {
+    positionClass: "primary-icon-wrapper",
+    color: "primary-color",
+  }
+
+  // this theme need to be used in the other pages
+  const socialsTheme2 = {
+    positionClass: "secondary-icon-wrapper",
+    color: "secondary-color",
+  }
+
+  return (
+    <Layout>
+      {/* <Seo title="Home" /> */}
+      <Hero socialsTheme={socialsTheme1} />
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page

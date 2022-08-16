@@ -6,7 +6,7 @@ import Socials from '../Socials/index'
 // hooks
 import { useSocialsQuery } from "../../hooks/useSocialsQuery"
 
-const Hero = () => {
+const Hero = ({ socialsTheme }) => {
   const { wpMenu } = useSocialsQuery()
 
   return (
@@ -22,7 +22,7 @@ const Hero = () => {
         <p>not all those who wander are lost</p>
         <strong>J.R.R. Tolkien</strong>
       </div>
-      <Socials socials={wpMenu} />
+      <Socials socials={wpMenu} socialsTheme={socialsTheme} />
     </section>
   )
 }
