@@ -13,19 +13,26 @@ const Logo = ({ scrollPosition, siteMetadata, width }) => {
 
   useEffect(() => {
     if (width[0] <= smDesktopWidth) {
-      logoRef.current.style.width = "5em"
+      if (scrollPosition > 0) logoRef.current.style.width = "6em"
+      if (scrollPosition <= 0) logoRef.current.style.width = "8em"
     }else{
       if (scrollPosition > 0) logoRef.current.style.width = "8em"
       if (scrollPosition <= 0) logoRef.current.style.width = "10em"
     }
   }, [scrollPosition, width])
 
+  const handleLogoDisplayed = () => {
+    
+    if(scrollPosition <= 0) return LogoWhite
+    if(scrollPosition > 0) return LogoBlack
+  }
+
   return (
     <div className={styles.logo}>
       <Link to="/">
         <img
           ref={logoRef}
-          src={scrollPosition <= 0 ? LogoWhite : LogoBlack}
+          src={handleLogoDisplayed()}
           alt={siteMetadata.title}
         />
       </Link>

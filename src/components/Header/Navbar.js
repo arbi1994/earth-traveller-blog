@@ -1,42 +1,61 @@
 import React from "react"
+import { Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
-import { Link } from "gatsby"
+// components
+import MobileNav from "./MobileNav"
 
-const Navbar = ({ menu, scrollPosition }) => {
+const Navbar = ({ 
+  menu, 
+  scrollPosition, 
+  toggle, 
+  setToggle, 
+  socialsTheme 
+}) => {
   const { menuItems } = menu
 
+  const handleLinkColors = () => {
+    if (!toggle) {
+      if (scrollPosition <= 0) return "white"
+      if (scrollPosition > 0) return "black"
+    }
+
+    if (toggle) {
+      return "black"
+    }
+  }
+  
   return (
-    <nav className={styles.navbar}>
-      <ul className={styles.navbarLeft}>
-        {menuItems.nodes
-          .slice(0, menuItems.nodes.length / 2)
-          .map(({ id, url, label }) => (
-            <li key={id}>
-              <Link
-                to={url}
-                style={{ color: `${scrollPosition <= 0 ? "white" : "black"}` }}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-      </ul>
-      <ul className={styles.navbarRight}>
-        {menuItems.nodes
-          .slice(menuItems.nodes.length / 2)
-          .map(({ id, url, label }) => (
-            <li key={id}>
-              <Link
-                to={url}
-                style={{ color: `${scrollPosition <= 0 ? "white" : "black"}` }}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </nav>
+    <>
+      {!toggle ? (
+        <nav className={!toggle ? styles.navbar : styles.navbarMobile}>
+          <ul className={styles.navbarLeft}>
+            {menuItems.nodes
+              .slice(0, menuItems.nodes.length / 2)
+              .map(({ id, url, label }) => (
+                <li key={id}>
+                  <Link to={url} style={{ color: `${handleLinkColors()}` }}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+          <ul className={styles.navbarRight}>
+            {menuItems.nodes
+              .slice(menuItems.nodes.length / 2)
+              .map(({ id, url, label }) => (
+                <li key={id}>
+                  <Link to={url} style={{ color: `${handleLinkColors()}` }}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </nav>
+      ) : (
+        <MobileNav menuItems={menuItems} setToggle={setToggle} socialsTheme={socialsTheme} />
+      )}
+    </>
   )
 }
 

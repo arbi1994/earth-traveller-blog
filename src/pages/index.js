@@ -20,7 +20,7 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout>
+    <Layout socialsTheme={socialsTheme2}>
       {/* <Seo title="Home" /> */}
       <Hero socialsTheme={socialsTheme1} />
     </Layout>

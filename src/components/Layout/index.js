@@ -6,10 +6,10 @@ import Footer from '../Footer/index'
 
 //every page must have a header and a footer component
 
-const Layout = ({ children }) => {
+const Layout = ({ children, socialsTheme }) => {
   return (
     <section className={styles.layout}>
-      <Header />
+      <Header socialsTheme={socialsTheme} />
       {children}
       <Footer />
     </section>

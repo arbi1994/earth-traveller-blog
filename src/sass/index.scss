@@ -39,10 +39,7 @@ a {
 
 .secondary-icon-wrapper {
   width: 5em;
-  position: fixed;
-  bottom: calc(100/2);
-  right: 0;
-  @include flex(column, center, center);
+  @include flex(row, center, center);
 
   li {
     padding: 2em 0;
