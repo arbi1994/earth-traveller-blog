@@ -9,7 +9,6 @@
   // min-height: 20vh;
   @include flex(row, center, center);
   text-transform: uppercase;
-  letter-spacing: 3px;
   z-index: 2;
   transition: min-height 0.35s ease;
 
@@ -46,7 +45,8 @@
   a {
     font-size: clamp(1.4rem, 1.5vw, 1.8rem);
     color: white;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 2px;
 
     &:hover {
       color: $lightBlue !important;

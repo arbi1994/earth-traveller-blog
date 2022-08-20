@@ -15,7 +15,7 @@ const Hero = ({ socialsTheme }) => {
         quality="100"
       />
       <div className={styles.content}>
-        <p>not all those who wander are lost</p>
+        <h1>not all those who wander are lost</h1>
         <strong>J.R.R. Tolkien</strong>
       </div>
       <Socials socialsTheme={socialsTheme} />

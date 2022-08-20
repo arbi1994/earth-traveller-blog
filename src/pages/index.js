@@ -4,6 +4,7 @@ import "../sass/index.scss"
 // components
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
+import SectionLayout from "../components/SectionLayout"
 // import Seo from "../components/seo"
 
 const IndexPage = () => {
@@ -13,16 +14,33 @@ const IndexPage = () => {
     color: "primary-color",
   }
 
-  // this theme need to be used in the other pages
+  // secondary theme used in the MobileNav component
   const socialsTheme2 = {
     positionClass: "secondary-icon-wrapper",
     color: "secondary-color",
+  }
+
+  //first section properties
+  const firstSection = {
+    title: "latest articles",
+    link: "/articles",
+    color: "black",
+    backgroundColor: "#EAEAEA",
+  }
+  //second section properties
+  const secondSection = {
+    title: "latest countries visited",
+    link: "/countries",
+    color: "white",
+    backgroundColor: "#0E0E0E",
   }
 
   return (
     <Layout socialsTheme={socialsTheme2}>
       {/* <Seo title="Home" /> */}
       <Hero socialsTheme={socialsTheme1} />
+      <SectionLayout props={firstSection} />
+      <SectionLayout props={secondSection} />
     </Layout>
   )
 }

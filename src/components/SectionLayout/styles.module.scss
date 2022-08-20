@@ -1,0 +1,35 @@
+@use '../../sass/abstracts/' as *;
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6rem 13rem;
+  text-align: center;
+
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .heading {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp;
+    letter-spacing: 5px;
+  }
+
+  .content {
+    width: 100%;
+    min-height: 60vh;
+    
+    &-wrapper {
+      width: 100%;
+    }
+  }
+
+  .discover-link {
+    text-align: center;
+    color: $lightBlue;
+  }
+}
