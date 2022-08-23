@@ -9,7 +9,7 @@
   // min-height: 20vh;
   @include flex(row, center, center);
   text-transform: uppercase;
-  z-index: 2;
+  z-index: 5;
   transition: min-height 0.35s ease;
 
   @include media("<=SMdesktop") {
@@ -34,7 +34,7 @@
 }
 
 .navbar {
-  flex: 0 0 70%;
+  flex: 0 0 90em;
   @include flex(row, space-between, center);
   padding: 1em 0;
 

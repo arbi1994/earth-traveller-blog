@@ -29,8 +29,8 @@ const Header = ({ socialsTheme }) => {
 
   useEffect(() => {
     scrollPosition > 0
-      ? (ref.current.style.minHeight = `${width[0] <= 1024 ? "16vh" : "20vh"}`) //when header is in scroll position > 0
-      : (ref.current.style.minHeight = `${width[0] > 1024 ? "25vh" : "18vh"}`) //when header is in scroll position 0
+      ? (ref.current.style.minHeight = `${width[0] <= 1024 ? "9em" : "12em"}`) //when header is in scroll position > 0
+      : (ref.current.style.minHeight = `${width[0] > 1024 ? "15em" : "12em"}`) //when header is in scroll position 0
   }, [scrollPosition])
 
   return (

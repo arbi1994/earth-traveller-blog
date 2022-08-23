@@ -1,0 +1,79 @@
+@use '../../sass/abstracts/' as *;
+@use '../../sass/base/font-face' as *;
+
+.my-swiper {
+  height: 100%;
+  z-index: 2;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  @include flex(column, start, start);
+  position: relative;
+  color: white;
+  cursor: pointer;
+  padding: 5em;
+  transition: background 0.5s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.5s ease;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &-heading {
+    width: 100%;
+    z-index: 2;
+
+    .title {
+      font-family: indie flower, arial, helvetica, sans-serif;
+      font-weight: 500;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+  
+      @include media("<=tablet"){
+        text-align: center;
+      }
+    }
+  }
+
+  &-subheading {
+    width: 100%;
+    @include flex(row, start, center);
+    z-index: 2;
+    letter-spacing: 1px;
+
+    .date, .location {
+      font-family: $karma !important;
+      font-weight: 500;
+    }
+
+    .divider {
+      font-size: 2.5rem;
+      margin: -0.3em 0.5em 0 0.5em;
+    }
+  }
+}

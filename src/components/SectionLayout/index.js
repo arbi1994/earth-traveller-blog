@@ -5,7 +5,7 @@ import * as styles from "./styles.module.scss"
 
 const SectionLayout = ({ props, children }) => {
   return (
-    <main
+    <section
       className={styles.container}
       style={{ backgroundColor: props.backgroundColor }}
     >
@@ -20,7 +20,7 @@ const SectionLayout = ({ props, children }) => {
           {`${"Discover more >"}`}
         </Link>
       </div>
-    </main>
+    </section>
   )
 }
 
