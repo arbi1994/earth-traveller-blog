@@ -5,13 +5,7 @@ import * as styles from "./styles.module.scss"
 // components
 import MobileNav from "./MobileNav"
 
-const Navbar = ({ 
-  menu, 
-  scrollPosition, 
-  toggle, 
-  setToggle, 
-  socialsTheme 
-}) => {
+const Navbar = ({ menu, scrollPosition, toggle, setToggle, socialsTheme }) => {
   const { menuItems } = menu
 
   const handleLinkColors = () => {
@@ -24,7 +18,7 @@ const Navbar = ({
       return "black"
     }
   }
-  
+
   return (
     <>
       {!toggle ? (
@@ -53,7 +47,11 @@ const Navbar = ({
           </ul>
         </nav>
       ) : (
-        <MobileNav menuItems={menuItems} setToggle={setToggle} socialsTheme={socialsTheme} />
+        <MobileNav
+          menuItems={menuItems}
+          setToggle={setToggle}
+          socialsTheme={socialsTheme}
+        />
       )}
     </>
   )

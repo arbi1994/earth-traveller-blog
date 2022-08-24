@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
+// icons
+import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 const SectionLayout = ({ props, children }) => {
   return (
@@ -16,9 +18,14 @@ const SectionLayout = ({ props, children }) => {
         <div className={styles.content}>
           <div className={styles.contentWrapper}>{children}</div>
         </div>
-        <Link className={styles.discoverLink} to={props.link}>
-          {`${"Discover more >"}`}
-        </Link>
+        <div className={styles.discoverMoreBtn}>
+          <Link className={styles.discoverLink} to={props.link}>
+            Discover more
+          </Link>
+          <span>
+            <MdOutlineKeyboardArrowRight />
+          </span>
+        </div>
       </div>
     </section>
   )

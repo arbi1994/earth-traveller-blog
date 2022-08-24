@@ -12,9 +12,9 @@
   @include flex(column, start, start);
   position: relative;
   color: white;
-  cursor: pointer;
-  padding: 5em;
+  padding: 2em;
   transition: background 0.5s ease;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -23,8 +23,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
   }
 
   &:hover {
@@ -53,6 +53,10 @@
       text-align: left;
       margin-bottom: 2rem;
       letter-spacing: 2px;
+
+      @include media("<=SMdesktop") {
+        line-height: 30px;
+      }
   
       @include media("<=tablet"){
         text-align: center;
@@ -66,7 +70,11 @@
     z-index: 2;
     letter-spacing: 1px;
 
-    .date, .location {
+    @include media("<=tablet"){
+      justify-content: center;
+    }
+
+    .date {
       font-family: $karma !important;
       font-weight: 500;
     }
@@ -75,5 +83,45 @@
       font-size: 2.5rem;
       margin: -0.3em 0.5em 0 0.5em;
     }
+  }
+
+  &-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10em;
+    height: 10em;
+    background: white;
+    border-radius: 50%;
+    @include flex(row, center, center);
+    z-index: 3;
+    transition: all 0.5s ease 1s;
+
+    h6 {
+      font-family: indie flower, arial, helvetica, sans-serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: $lightBlue;
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transition: background 0.5s ease;
+    z-index: 2;
   }
 }

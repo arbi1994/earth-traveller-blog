@@ -27,7 +27,7 @@ const Socials = ({ socialsTheme }) => {
       <ul className={socialsTheme.positionClass}>
         {wpMenu.menuItems.nodes.map(node => (
           <li key={node.id}>
-            <a href={node.url} target="_blank" rel="noopener">
+            <a href={node.url} target="_blank" rel="noopener noreferrer">
               {displayedIcons(node.label)}
             </a>
           </li>
