@@ -6,7 +6,7 @@ import * as styles from "./styles.module.scss"
 
 const Thumbnail = ({ data, images }) => {
   const [isMouseOver, setIsMouseOver] = useState(false)
-  console.log(data)
+
   return (
     <div
       className={styles.thumbnail}
@@ -30,7 +30,6 @@ const Thumbnail = ({ data, images }) => {
           </Link>
         </div>
       ) : null}
-      {/* {isMouseOver ? <div className={styles.thumbnailOverlay}></div> : null} */}
     </div>
   )
 }

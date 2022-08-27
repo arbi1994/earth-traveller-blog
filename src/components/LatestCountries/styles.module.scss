@@ -1,0 +1,44 @@
+@use '../../sass/abstracts/' as *;
+@use '../../sass/base/font-face' as *;
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minCardWidth, 1fr));
+  gap: 5rem;
+  justify-items: center;
+}
+
+.card {
+  background-color: white; 
+  @include flex(column, center, center);
+  overflow: hidden;
+
+  &-image {
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease;
+
+    .transition {
+      scale: 1.1;
+      transition: all 0.35s ease;
+
+      &:hover {
+        scale: 1.15;
+        transition: scale 0.35s ease;
+      }
+    }
+  }
+
+  &-title {
+    width: 100%;
+    background: $black;
+
+    strong {
+      font-size: 3.6rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      color: white;
+    }
+  }
+}

@@ -5,7 +5,8 @@ import "../sass/index.scss"
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
 import SectionLayout from "../components/SectionLayout"
-import SectionSwiper from "../components/SectionSwiper/SectionSwiper"
+import LatestArticles from "../components/LatestArticles"
+import LatestCountries from "../components/LatestCountries"
 // import Seo from "../components/seo"
 
 const IndexPage = () => {
@@ -41,9 +42,11 @@ const IndexPage = () => {
       {/* <Seo title="Home" /> */}
       <Hero socialsTheme={socialsTheme1} />
       <SectionLayout props={firstSection}>
-        <SectionSwiper />
+        <LatestArticles />
       </SectionLayout>
-      <SectionLayout props={secondSection} />
+      <SectionLayout props={secondSection}>
+        <LatestCountries />
+      </SectionLayout>
     </Layout>
   )
 }

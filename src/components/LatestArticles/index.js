@@ -13,9 +13,9 @@ import { EffectCoverflow, Pagination, Navigation, Lazy } from "swiper"
 import Thumbnail from "./thumbnail"
 // hooks
 import { useArticlesQuery } from "../../hooks/useArticlesQuery"
-import useWindowSize from '../../hooks/useWindowSize'
+import useWindowSize from "../../hooks/useWindowSize"
 
-const SectionSwiper = () => {
+const LatestArticles = () => {
   const data = useArticlesQuery()
   const [width] = useWindowSize()
 
@@ -45,4 +45,4 @@ const SectionSwiper = () => {
   )
 }
 
-export default SectionSwiper
+export default LatestArticles

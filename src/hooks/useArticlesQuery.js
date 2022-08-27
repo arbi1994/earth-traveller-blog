@@ -4,7 +4,7 @@ export const useArticlesQuery = () => {
   const data = useStaticQuery(
     graphql`
       query MyArticlesQuery {
-        allWpPost {
+        allWpPost(limit: 3) {
           edges {
             node {
               id
@@ -19,7 +19,12 @@ export const useArticlesQuery = () => {
               excerpt
               featuredImage {
                 node {
-                  gatsbyImage(fit: COVER, width: 320, layout: FULL_WIDTH, aspectRatio: 0.8)
+                  gatsbyImage(
+                    fit: COVER
+                    width: 320
+                    layout: FULL_WIDTH
+                    aspectRatio: 0.8
+                  )
                 }
               }
               uri
