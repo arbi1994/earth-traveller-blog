@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
 // logo image
-import LogoBlack from "../../images/logo_black.svg"
+import LogoBlack from "../../images/logo-black.svg"
 // icons
 import { CgClose } from "react-icons/cg"
 // components
