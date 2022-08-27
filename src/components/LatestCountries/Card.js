@@ -12,6 +12,7 @@ const Card = ({ props }) => {
           image={props?.featuredImage?.node?.gatsbyImage}
           alt={props?.title}
           className={styles.transition}
+          loading="lazy"
         />
       </div>
       <div className={styles.cardTitle}>

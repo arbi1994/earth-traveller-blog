@@ -31,7 +31,7 @@ const Header = ({ socialsTheme }) => {
     scrollPosition > 0
       ? (ref.current.style.minHeight = `${width[0] <= 1024 ? "9em" : "12em"}`) //when header is in scroll position > 0
       : (ref.current.style.minHeight = `${width[0] > 1024 ? "15em" : "12em"}`) //when header is in scroll position 0
-  }, [scrollPosition])
+  }, [scrollPosition, width[0]])
 
   return (
     <header
@@ -40,11 +40,7 @@ const Header = ({ socialsTheme }) => {
         styles.header + " " + `${scrollPosition > 0 ? styles.scrolled : null}`
       }
     >
-      <Logo
-        scrollPosition={scrollPosition}
-        siteMetadata={siteMetadata}
-        width={width}
-      />
+      <Logo scrollPosition={scrollPosition} siteMetadata={siteMetadata} />
       <Navbar
         site={site}
         menu={wpMenu}

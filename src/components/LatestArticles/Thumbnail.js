@@ -15,13 +15,13 @@ const Thumbnail = ({ data, images }) => {
       onMouseLeave={() => setIsMouseOver(false)}
     >
       <div className={styles.thumbnailHeading}>
-        <h4 className={styles.title}>{data?.title}</h4>
+        <h5 className={styles.title}>{data?.title}</h5>
       </div>
       <div className={styles.thumbnailSubheading}>
         <h6 className={styles.date}>{data?.date}</h6>
       </div>
       <div className={styles.thumbnailImage}>
-        <GatsbyImage image={images?.node?.gatsbyImage} alt="" />
+        <GatsbyImage image={images?.node?.gatsbyImage} alt="" loading="lazy" />
       </div>
       {isMouseOver ? (
         <div className={styles.thumbnailLink}>

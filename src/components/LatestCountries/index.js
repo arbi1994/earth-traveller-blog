@@ -13,7 +13,7 @@ const LatestCountries = () => {
   return (
     <div className={styles.wrapper}>
       {countries.map(({ node }) => (
-        <Card props={node} />
+        <Card key={node?.id} props={node} />
       ))}
     </div>
   )

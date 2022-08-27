@@ -10,7 +10,7 @@
   @include flex(row, center, center);
   text-transform: uppercase;
   z-index: 5;
-  transition: min-height 0.35s ease;
+  transition: min-height .5s ease-in-out;
 
   @include media("<=SMdesktop") {
     @include flex(row, space-between, center);
@@ -19,7 +19,7 @@
 
   .logo {
     position: absolute;
-    height: 100%;
+    width: 100px;
     padding: 1em;
     @include flex(row, center, center);
 
@@ -27,8 +27,13 @@
       display: block;
     }
 
+    @include media("<=tablet") {
+      width: 80px;
+    }
+
     img {
-      transition: width 0.35s ease;
+      width: 100%;
+      transition: width 0.5s ease-in-out;
     }
   }
 }

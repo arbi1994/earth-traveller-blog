@@ -35,10 +35,9 @@ $font-sizes: (
   h1: clamp(5rem, 6vw, 10rem),
   h2: clamp(4rem, 5vw, 8rem),
   h3: clamp(3rem, 4.5vw, 5rem),
-  h4: clamp(2.2rem, 2.5vw, 4rem),
-  h5: clamp(1.6rem, 2vw, 2.5rem),
-  h6: clamp(1.4rem, 1.5vw, 1.6rem),
-  // a: clamp(1.4rem, 1.5vw, 2rem),
+  h4: clamp(2.4rem, 2vw, 4rem),
+  h5: clamp(1.8rem, 2vw, 2.8rem),
+  h6: clamp(1.2rem, 1.5vw, 1.6rem),
   p: clamp(1.6rem, 1.7vw, 3rem),
   dl: clamp(1.6rem, 1.5vw, 3rem),
 );
