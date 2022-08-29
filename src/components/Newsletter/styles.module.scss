@@ -1,0 +1,139 @@
+@use '../../sass/abstracts/' as *;
+@use '../../sass/base/font-face' as *;
+
+.newsletter {
+  background: white;
+  padding: 3em 5em;
+
+  @include media("<tablet") {
+    padding: 2em 1em;
+  }
+
+  &-heading {
+    width: 100%;
+    margin-bottom: 6em;
+
+    h3 {
+      letter-spacing: 2px;
+    }
+
+    h5 {
+      font-family: indie flower, arial, helvetica, sans-serif;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+  }
+
+  &-form {
+    margin: 2em 0;
+    width: 100%;
+    @include flex(row, center, center);
+    
+    @include media("<tablet") {
+      @include flex(column, center, center);
+    }
+
+    button {
+      width: 20em;
+      height: 3em;
+      padding: 0 1rem;
+      margin-left: 1rem;
+      background: $lightBlue;
+      font-family: $karma;
+      font-size: clamp(1.4rem, 1.5vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: white;
+      transition: letter-spacing 0.35s ease;
+      cursor: pointer;
+
+      @include media("<=tablet") {
+        width: 15em;
+      }
+
+      @include media("<tablet") {
+        width: 100%;
+        margin-top: 2em;
+        margin-left: 0;
+      }
+
+      &:hover {
+        letter-spacing: 1px;
+        transition: letter-spacing 0.35s ease;
+      }
+    }    
+  }
+
+  &-wrapper {
+    width: 100%;
+    @include flex(row, space-between, center);
+
+    @include media("<tablet") {
+      @include flex(row, space-between, center);
+    }
+
+    @include media("<=phone") {
+      @include flex(column, center, center);
+    }
+    
+    input {
+      width: 100%;
+      height: 3em;
+      padding: 0 1rem;
+      font-family: $mukta;
+      font-size: clamp(1.4rem, 1.5vw, 2.4rem);
+      border: none;
+
+      // @include media("<=SMdesktop") {
+      //   width: 12em;
+      // }
+
+      // @include media("<=tablet") {
+      //   width: 10em;
+      // }
+
+      // @include media("<tablet") {
+      //   width: 100%;
+      // }
+    }
+
+    hr {
+      border: none;
+      width: .5px;
+      height: 3em;
+      background: black;
+
+      @include media("<=phone") {
+        height: 0.5px;
+        width: 90%;
+      }
+    }
+
+    input:nth-child(1) {
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+      margin-right: 1rem;
+
+      @include media("<=phone") {
+        border-right: 1px solid black;
+        border-bottom: none;
+        margin: 0 0 1em 0;
+      }
+    }
+    
+    input:nth-child(3) {
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      margin-left: 1rem;
+      
+      
+      @include media("<=phone") {
+        border-top: none;
+        border-left: 1px solid black;
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+}

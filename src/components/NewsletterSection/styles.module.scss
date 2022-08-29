@@ -1,0 +1,38 @@
+@use '../../sass/abstracts/' as *;
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6rem 13rem 10rem 13rem;
+  text-align: center;
+  position: relative;
+  @include flex(row, center, center);
+
+  @include media("<=SMdesktop") {
+    padding: 6rem;
+  }
+
+  @include media("<=tablet") {
+    padding: 4rem;
+    min-height: 60vh;
+  }
+
+  @include media("<tablet") {
+    padding: 5rem 2rem;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.8)
+    );
+    z-index: -1;
+  }
+}

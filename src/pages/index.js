@@ -7,6 +7,7 @@ import Hero from "../components/Hero"
 import SectionLayout from "../components/SectionLayout"
 import LatestArticles from "../components/LatestArticles"
 import LatestCountries from "../components/LatestCountries"
+import NewsletterSection from "../components/NewsletterSection"
 // import Seo from "../components/seo"
 
 const IndexPage = () => {
@@ -47,6 +48,7 @@ const IndexPage = () => {
       <SectionLayout props={secondSection}>
         <LatestCountries />
       </SectionLayout>
+      <NewsletterSection />
     </Layout>
   )
 }
