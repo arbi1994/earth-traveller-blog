@@ -1,3 +1,123 @@
+@use '../../sass/abstracts/' as *;
+
 .footer {
-  min-height: 50vh;
+  min-height: 80vh;
+  width: 100%;
+  padding: 5em 10em 0 10em;
+  background: $black;
+  @include flex(column, start, space-between);
+
+  @include media("<SMdesktop") {
+    min-height: 50vh;
+  }
+
+  @include media("<=tablet") {
+    min-height: 55vh;
+    padding: 5em 5em 0 5em;
+  }
+
+  @include media("<=phoneL") {
+    padding: 5em 2em 0 2em;
+  }
+
+  &-wrapper {
+    @include flex(row, space-between, start);
+
+    @include media("<tablet") {
+      @include flex(column, space-between, start);
+    }
+  
+    .navigation {
+
+      @include media("<tablet") {
+        margin-bottom: 5em;
+      }
+
+      &-title {
+        color: white;
+        letter-spacing: 2px;
+        margin-bottom: 1em;
+
+        h5 {
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+      }
+
+      hr {
+        border: none;
+        width: 80%;
+        height: .5px;
+        background: white;
+      }
+
+      &-container {
+        margin-top: 2em;
+
+        li {
+          min-width: 20em;
+          padding: 1.2em 0;
+
+          @include media("<=phoneL") {
+            padding: 1em 0;
+          }
+
+          a {
+            font-size: clamp(1.6rem, 1.5vw, 2.4rem);
+            letter-spacing: 2px;
+            color: $grey;
+
+            &:hover {
+              color: $lightBlue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-logo {
+    width: calc(10 * 1vw);
+
+    @include media("<tablet") {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-bottom {
+    width: 100%;
+    min-height: 20vh;
+    @include flex(row, space-between, end);
+    color: $darkGrey;
+
+    @include media("<SMdesktop") {
+      padding-bottom: 2em;
+    }
+
+    @include media("<=phoneL") {
+      min-height: 10vh;
+      @include flex(column, space-between, center);
+    }
+
+    h6 {
+      font-weight: 400;
+
+      a {
+        font-weight: 600;
+        color: $darkGrey;
+
+        &:hover {
+          color: $grey;
+        }
+      }
+    }
+
+    .copyright {
+     
+    }
+  }
 }
