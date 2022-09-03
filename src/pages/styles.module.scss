@@ -1,0 +1,43 @@
+@use '../sass/abstracts/' as *;
+
+.primary-icon-wrapper {
+  width: 5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @include flex(column, center, center);
+
+  li {
+    padding: 2em 0;
+  }
+}
+
+.secondary-icon-wrapper {
+  width: 5em;
+  @include flex(row, center, center);
+
+  li {
+    padding: 2em 0;
+  }
+}
+
+.primary-color {
+  color: white;
+}
+
+.secondary-color {
+  color: black;
+}
+
+.primary-color, .secondary-color {
+  &:hover {
+    color: $lightBlue;
+  }
+}
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: white;
+  color: black;
+}

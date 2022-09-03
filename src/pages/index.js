@@ -1,6 +1,7 @@
 import * as React from "react"
 // global styles
 import "../sass/index.scss"
+import * as styles from "./styles.module.scss"
 // components
 import Layout from "../components/layout"
 import Hero from "../components/Hero"
@@ -13,14 +14,13 @@ import NewsletterSection from "../components/NewsletterSection"
 const IndexPage = () => {
   // theme used in the homepage only
   const socialsTheme1 = {
-    positionClass: "primary-icon-wrapper",
-    color: "primary-color",
+    positionClass: `${styles.primaryIconWrapper}`,
+    color: `${styles.primaryColor}`,
   }
-
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
-    positionClass: "secondary-icon-wrapper",
-    color: "secondary-color",
+    positionClass: `${styles.secondaryIconWrapper}`,
+    color: `${styles.secondaryColor}`,
   }
 
   //first section properties

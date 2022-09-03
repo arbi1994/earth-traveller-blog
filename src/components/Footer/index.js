@@ -14,10 +14,7 @@ import { useSocialsQuery } from "../../hooks/useSocialsQuery"
 
 const Footer = () => {
   const { wpMenu: menu } = useMenuQuery()
-  console.log(menu)
-
   const { wpMenu: socials } = useSocialsQuery()
-  console.log(socials)
 
   return (
     <footer className={styles.footer}>
@@ -43,7 +40,9 @@ const Footer = () => {
           <ul className={styles.navigationContainer}>
             {socials?.menuItems?.nodes?.map(({ id, url, label }) => (
               <li key={id}>
-                <Link to={url}>{label}</Link>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  {label}
+                </a>
               </li>
             ))}
           </ul>
@@ -60,8 +59,18 @@ const Footer = () => {
         </div>
         <div className={styles.credits}>
           <h6>
-            Made with &nbsp;<span><FaHeart color="#F24E1E" /></span>
-            &nbsp; by &nbsp;<a href="https://arbershyti.com/">Arber Shyti</a>
+            Made with &nbsp;
+            <span>
+              <FaHeart color="#F24E1E" />
+            </span>
+            &nbsp; by &nbsp;
+            <a
+              href="https://arbershyti.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Arber Shyti
+            </a>
           </h6>
         </div>
       </div>

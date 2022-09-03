@@ -7,7 +7,7 @@ import LogoBlack from "../../images/logo-black.svg"
 // icons
 import { CgClose } from "react-icons/cg"
 // components
-import Socials from "../Socials/index"
+import Socials from "../Socials"
 
 const MobileNav = ({ menuItems, setToggle, socialsTheme }) => {
   const handleClick = () => setToggle(false)

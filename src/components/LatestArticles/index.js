@@ -8,7 +8,7 @@ import "swiper/css/pagination"
 import "swiper/css/navigation"
 import "swiper/css/lazy"
 // import required modules
-import { EffectCoverflow, Pagination, Navigation, Lazy } from "swiper"
+import { EffectCoverflow, Navigation, Lazy } from "swiper"
 // components
 import Thumbnail from "./thumbnail"
 // hooks
@@ -26,18 +26,18 @@ const LatestArticles = () => {
       effect={"coverflow"}
       centeredSlides={true}
       grabCursor={false}
-      navigation={width < 768 ? true : false}
+      navigation={true}
       lazy={true}
       pagination={{
         clickable: false,
       }}
       spaceBetween={0}
-      slidesPerView={width < 768 ? 1 : 2}
+      slidesPerView={width < 768 ? 1 : 1.5}
       modules={[Navigation, Lazy, EffectCoverflow]}
       className={styles.mySwiper}
     >
       {allWpPost?.edges?.map(({ node }) => (
-        <SwiperSlide key={node.id}>
+        <SwiperSlide key={node?.id}>
           <Thumbnail data={node} images={node?.featuredImage} />
         </SwiperSlide>
       ))}

@@ -57,15 +57,16 @@
         li {
           min-width: 20em;
           padding: 1.2em 0;
-
+          
           @include media("<=phoneL") {
             padding: 1em 0;
           }
-
+          
           a {
             font-size: clamp(1.6rem, 1.5vw, 2.4rem);
             letter-spacing: 2px;
             color: $grey;
+            cursor: pointer;
 
             &:hover {
               color: $lightBlue;

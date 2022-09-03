@@ -1,16 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 // styles
 import * as styles from "./styles.module.scss"
-// components
-import Navbar from "./Navbar"
 // hooks
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 import useScrollPosition from "../../hooks/useScrollPosition"
 import useWindowSize from "../../hooks/useWindowSize"
 // icons
 import { BsThreeDots } from "react-icons/bs"
-import { CgClose } from "react-icons/cg"
 // components
+import Navbar from "./Navbar"
 import Logo from "./Logo"
 
 // need to declare the meta site title as a prop
@@ -31,14 +29,12 @@ const Header = ({ socialsTheme }) => {
     scrollPosition > 0
       ? (ref.current.style.minHeight = `${width[0] <= 768 ? "9em" : "12em"}`) //when header is in scroll position > 0
       : (ref.current.style.minHeight = `${width[0] > 768 ? "15em" : "12em"}`) //when header is in scroll position 0
-  }, [scrollPosition, width[0]])
+  }, [scrollPosition, width])
 
   return (
     <header
       ref={ref}
-      className={
-        styles.header + " " + `${scrollPosition > 0 ? styles.scrolled : null}`
-      }
+      className={`${styles.header} ${scrollPosition > 0 ? styles.scrolled : null}`}
     >
       <Logo scrollPosition={scrollPosition} siteMetadata={siteMetadata} />
       <Navbar
