@@ -1,0 +1,12 @@
+@use "../../sass/abstracts/" as *;
+
+.wrapper {
+  max-width: 100%;
+  min-height: 100vh;
+  @include flex(row, space-between, start);
+  padding-top: 10em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  gap: 4rem;
+  justify-items: center;
+}

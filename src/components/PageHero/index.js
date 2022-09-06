@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "./styles.module.scss"
 
 const PageHero = ({ data }) => {
-  
+
   return (
     <section className={styles.hero}>
       <GatsbyImage

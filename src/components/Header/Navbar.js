@@ -8,6 +8,8 @@ import MobileNav from "./MobileNav"
 const Navbar = ({ menu, scrollPosition, toggle, setToggle, socialsTheme }) => {
   const { menuItems } = menu
 
+  console.log(menuItems)
+
   const handleLinkColors = () => {
     if (!toggle) {
       if (scrollPosition <= 0) return "white"

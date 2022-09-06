@@ -4,7 +4,7 @@ export const useArticlesQuery = () => {
   const data = useStaticQuery(
     graphql`
       query MyArticlesQuery {
-        allWpPost(limit: 3) {
+        allWpPost(limit: 3, sort: { fields: date, order: DESC }) {
           edges {
             node {
               id
