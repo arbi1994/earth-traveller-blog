@@ -6,7 +6,7 @@
   @include flex(row, space-between, start);
   padding-top: 10em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
   gap: 4rem;
   justify-items: center;
 }

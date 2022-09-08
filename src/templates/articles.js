@@ -13,6 +13,7 @@ import Pagination from "../components/Pagination"
 const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
   const { wpPage: pageData, allWpPost: articles } = data
 
+  console.log(articles)
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
     positionClass: `${styles.secondaryIconWrapper}`,
@@ -48,9 +49,15 @@ export const articlesPageQuery = graphql`
           id
           title
           link
+          date(formatString: "MMM DD, YYYY")
           featuredImage {
             node {
-              gatsbyImage(width: 150, fit: COVER, quality: 100)
+              gatsbyImage(
+                width: 150
+                fit: COVER
+                quality: 100
+                layout: FULL_WIDTH
+              )
             }
           }
         }

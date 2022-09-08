@@ -1,10 +1,17 @@
 @use "../../sass/abstracts/" as *;
+@use "../../sass/base/" as *;
 
 .card {
-  width: 20em;
-  height: 20em;
-  padding: .5em .5em 2em .5em;
-  border: 1px solid black;
+  width: 25em;
+  min-height: 25em;
+  padding: 1.5em 1.5em 2em 1.5em;
+  background: white;
+  transition: box-shadow 0.5s ease;
+
+  &:hover {
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.5s ease;
+  }
 
   &-wrapper {
     width: 100%;
@@ -12,16 +19,31 @@
 
     .image {
       width: 100%;
-      height: 100%;
 
       img {
         width: 100%;
+        height: 100%;
       }
     }
 
     .title {
       width: 100%;
-      text-align: left;
+
+      .date {
+        color: $darkGrey;
+        font-style: $karma !important;
+        font-weight: 400;
+        font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+        margin: .5em 0;
+        display: block;
+        text-align: left;
+      }
+
+      h6 {
+        line-height: 18px;
+        color: black;
+        font-weight: 500;
+      }
     }
   }
 }

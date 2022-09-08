@@ -14,7 +14,7 @@ const Article = ({ data }) => {
           />
         </div>
         <div className={styles.title}>
-          <strong>date</strong>
+          <strong className={styles.date}>{data?.date}</strong>
           <h6>{data?.title}</h6>
         </div>
       </div>
