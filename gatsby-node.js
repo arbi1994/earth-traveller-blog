@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const articlesTemplate = path.resolve("./src/templates/articles.js")
+  const countryTemplate = path.resolve("./src/templates/country.js")
 
   const result = await graphql(`
     {
@@ -47,11 +48,47 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             count
             uri
             slug
+            wpParent {
+              node {
+                id
+                name
+              }
+            }
+            wpChildren {
+              nodes {
+                id
+                link
+                slug
+                count
+              }
+            }
+          }
+        }
+      }
+      allWpPage(filter: { wpParent: { node: { slug: { eq: "countries" } } } }) {
+        edges {
+          node {
+            id
+            title
+            link
+            slug
+            featuredImage {
+              node {
+                gatsbyImage(
+                  width: 1600
+                  layout: FIXED
+                  quality: 100
+                  placeholder: BLURRED
+                )
+              }
+            }
           }
         }
       }
     }
   `)
+
+  // category.node.wpChildren.nodes.name === "Countries"
 
   // check for errors
   if (result.errors) {
@@ -59,7 +96,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const { wp, allWpCategory } = result.data
+  const { wp, allWpCategory, allWpPage } = result.data
+
+  // create pages for each country
+  allWpPage.edges.forEach(page => {
+    const slug = page.node.slug
+    const link = page.node.link
+
+    actions.createPage({
+      path: link,
+      component: require.resolve(`./src/templates/country.js`),
+      context: { slug: slug },
+    })
+  })
 
   // create pages for each category
   allWpCategory.edges.forEach(category => {
@@ -67,10 +116,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const numberOfPosts = category.node.count
     const numPages = Math.ceil(numberOfPosts / postsPerPage)
 
-    if (numberOfPosts > 0) {
+    if (numberOfPosts > 0 && category.node.wpParent === null) {
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path: i === 0 ? `/${category.node.slug}` : `/${category.node.slug}/${i + 1}`,
+          path:
+            i === 0
+              ? `/${category.node.slug}`
+              : `/${category.node.slug}/${i + 1}`,
           component: articlesTemplate,
           context: {
             limit: postsPerPage,

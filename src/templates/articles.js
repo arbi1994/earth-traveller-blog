@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
 // components
