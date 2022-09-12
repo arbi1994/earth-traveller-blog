@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+// import Stack from "@mui/material/Stack"
+// import Pagination from "@mui/material/Pagination"
 // styles
 import * as styles from "./styles.module.scss"
 // components
@@ -13,7 +15,6 @@ import Pagination from "../components/Pagination"
 const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
   const { wpPage: pageData, allWpPost: articles } = data
 
-  console.log(articles)
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
     positionClass: `${styles.secondaryIconWrapper}`,
@@ -27,7 +28,7 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
         <PageIntroduction data={pageData} />
         <PageContent>
           <Articles data={articles} />
-          <Pagination page={currentPage} totalPages={numPages} />
+          <Pagination totalPages={numPages} currentPage={currentPage} />
         </PageContent>
       </div>
     </Layout>

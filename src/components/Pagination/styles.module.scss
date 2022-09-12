@@ -1,6 +1,21 @@
+@use '../../sass/abstracts/' as *;
+@use '../../sass/base/' as *;
+
 .pagination {
-  border: 1px solid black;
   width: 100%;
-  min-height: 20vh;
+  height: 10vh;
   margin-top: 5em;
+  @include flex(row, center, center);
+
+  &-wrapper {
+    width: 20em;
+    height: 100%;
+    background: white;
+    color: black;
+  }
+
+  a {
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    font-family: $mukta;
+  }
 }
