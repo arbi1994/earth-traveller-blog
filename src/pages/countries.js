@@ -5,12 +5,12 @@ import * as styles from "./styles.module.scss"
 // components
 import Layout from "../components/Layout"
 import PageHero from "../components/PageHero"
-import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
+import Countries from "../components/Countries"
 
 const CountriesPage = ({ data }) => {
   const { wpPage: pageData, allWpPage: countriesData } = data
-  
+
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
     positionClass: `${styles.secondaryIconWrapper}`,
@@ -21,15 +21,8 @@ const CountriesPage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
-        <PageIntroduction data={pageData} />
         <PageContent>
-          <div>
-            {countriesData?.edges?.map(country => (
-              <div key={country?.node?.id}>
-                <Link to={country?.node?.link}>{country?.node?.title}</Link>
-              </div>
-            ))}
-          </div>
+          <Countries data={countriesData} />
         </PageContent>
       </div>
     </Layout>
@@ -64,9 +57,10 @@ export const countriesPageQuery = graphql`
           featuredImage {
             node {
               gatsbyImage(
-                width: 1600
-                layout: FIXED
+                width: 150
+                fit: COVER
                 quality: 100
+                layout: FULL_WIDTH
                 placeholder: BLURRED
               )
             }
@@ -78,4 +72,3 @@ export const countriesPageQuery = graphql`
 `
 
 export default CountriesPage
-

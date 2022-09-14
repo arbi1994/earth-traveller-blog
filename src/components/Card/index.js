@@ -3,7 +3,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 // styles
 import * as styles from "./styles.module.scss"
 
-const Article = ({ data }) => {
+const Card = ({ data, pathname }) => {
+
   return (
     <div className={styles.card}>
       <div className={styles.cardWrapper}>
@@ -14,12 +15,18 @@ const Article = ({ data }) => {
           />
         </div>
         <div className={styles.title}>
-          <strong className={styles.date}>{data?.date}</strong>
-          <h6>{data?.title}</h6>
+          {pathname !== "/countries/" ? (
+            <strong className={styles.date}>{data?.date}</strong>
+          ) : null}
+          {pathname !== "/countries/" ? (
+            <h6>{data?.title}</h6>
+          ) : (
+            <h5>{data?.title}</h5>
+          )}
         </div>
       </div>
     </div>
   )
 }
 
-export default Article
+export default Card

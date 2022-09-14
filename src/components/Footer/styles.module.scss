@@ -78,7 +78,7 @@
   }
 
   &-logo {
-    width: calc(10 * 1vw);
+    width: calc(8 * 1vw);
 
     @include media("<tablet") {
       display: none;

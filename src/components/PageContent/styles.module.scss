@@ -2,16 +2,25 @@
 
 .main {
   @include flex(row, center, center);
-  background: $white;
 
   &-wrapper {
     flex: 0 0 90em;
-    padding: 33em 0;
     @include flex(column, center, center);
+    padding-bottom: 5em;
 
     @include media("<SMdesktop") {
       flex: 1;
-      padding: 30em 2em;
+      padding: 0 2em;
+    }
+
+    @include media("<=phoneL") {
+      flex: 1;
+      padding: 0 2em 2em 2em;
+    }
+
+    @include media("<=phone") {
+      flex: 0 0 100%;
+      padding: 0 1em 2em 1em;
     }
 
     h4 {
@@ -26,6 +35,10 @@
       height: .5px;
       background: black;
       width: 30em;
+
+      @include media("<=phoneL") {
+        width: 60%;
+      }
     }
   
     p {

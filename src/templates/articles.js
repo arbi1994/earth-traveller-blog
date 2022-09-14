@@ -1,9 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import Stack from "@mui/material/Stack"
-// import Pagination from "@mui/material/Pagination"
 // styles
 import * as styles from "./styles.module.scss"
+import * as socialsStyles from "../pages/styles.module.scss"
 // components
 import Layout from "../components/Layout"
 import PageHero from "../components/PageHero"
@@ -17,8 +16,8 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
 
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
-    positionClass: `${styles.secondaryIconWrapper}`,
-    color: `${styles.secondaryColor}`,
+    positionClass: `${socialsStyles.secondaryIconWrapper}`,
+    color: `${socialsStyles.secondaryColor}`,
   }
 
   return (
@@ -26,8 +25,8 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageIntroduction data={pageData} />
-        <PageContent>
-          <Articles data={articles} />
+        <PageContent currentPage={currentPage}>
+          <Articles data={articles} currentPage={currentPage} />
           <Pagination totalPages={numPages} currentPage={currentPage} />
         </PageContent>
       </div>
@@ -58,6 +57,7 @@ export const articlesPageQuery = graphql`
                 fit: COVER
                 quality: 100
                 layout: FULL_WIDTH
+                placeholder: BLURRED
               )
             }
           }

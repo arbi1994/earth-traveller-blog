@@ -51,11 +51,12 @@
     font-size: clamp(1.4rem, 1.5vw, 1.8rem);
     color: white;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    transition: all 0.35s ease;
 
     &:hover {
       color: $lightBlue !important;
-      transition: all 0.15s linear;
+      transition: all 0.35s ease;
     }
   }
 

@@ -20,9 +20,9 @@
 
 .title {
   max-width: 40em;
-  width: 100%;
   color: white;
   margin-bottom: 20em;
+  @include flex(column, center, center);
 
   h4{
     font-weight: 500;
@@ -35,5 +35,6 @@
     border: none;
     height: .5px;
     background: white;
+    width: 100%;
   }
 }
