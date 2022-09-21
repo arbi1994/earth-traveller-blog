@@ -1,18 +1,31 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
+  const { pathname } = routerProps.location
+  const scrollToTopRoutes = [
+    "/",
+    "/gallery/",
+    "/countries/",
+    "/articles/",
+    "/about/",
+  ]
 
-// You can delete this file if you're not using it
-exports.shouldUpdateScroll = ({
-  routerProps: { location },
-  getSavedScrollPosition
-}) => {
-  const currentPosition = getSavedScrollPosition(location)
-  const queriedPosition = getSavedScrollPosition({ pathname: `/articles/` })
+  // transform pathname string into an array so I can target each individual pathname
+  const pathnameArr = pathname.split("/").slice(1, pathname.length)
 
-  window.scrollTo(...(currentPosition || [0, 0]))
+  if (
+    (pathnameArr[0] === "articles" && pathnameArr[1] > 1) ||
+    pathname === "/articles"
+  ) {
+    window.scrollTo({ top: 900, left: 0, behavior: "smooth" })
+  }
+
+  if (
+    scrollToTopRoutes.includes(pathname) ||
+    (pathnameArr[0] === "countries" && pathnameArr[1] !== "")
+  ) {
+    window.scrollTo(0, 0)
+  }
 
   return false
 }
+
+

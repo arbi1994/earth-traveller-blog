@@ -26,14 +26,14 @@ const IndexPage = () => {
   //first section properties
   const firstSection = {
     title: "latest articles",
-    link: "/articles",
+    link: "/articles/",
     color: "black",
     backgroundColor: "#EAEAEA",
   }
   //second section properties
   const secondSection = {
     title: "latest countries visited",
-    link: "/countries",
+    link: "/countries/",
     color: "white",
     backgroundColor: "#0E0E0E",
   }

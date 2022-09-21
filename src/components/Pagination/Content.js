@@ -9,11 +9,11 @@ const Content = ({ totalPages, currentPage }) => {
     <Pagination
       page={currentPage}
       count={totalPages}
-      size="large" 
+      size="large"
       renderItem={item => (
         <PaginationItem
           component={Link}
-          to={`/articles/${item.page === 1 ? "" : `${item.page}`}`}
+          to={`/articles${item.page === 1 ? "" : `/${item.page}`}`}
           {...item}
         />
       )}

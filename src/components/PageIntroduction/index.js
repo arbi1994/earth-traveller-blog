@@ -8,7 +8,7 @@ const PageIntroduction = ({ data }) => {
   const avatarImage = data?.avatarImage?.avatarImage?.gatsbyImage
 
   return (
-    <div className={styles.introduction}>
+    <div id="introduction" className={styles.introduction}>
       {data?.content === null ? null : (
         <div className={styles.introductionWrapper}>
           {data?.title && data?.title !== "About" ? (
