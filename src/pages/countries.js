@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
@@ -7,8 +7,11 @@ import Layout from "../components/Layout"
 import PageHero from "../components/PageHero"
 import PageContent from "../components/PageContent"
 import Countries from "../components/Countries"
+import ContinentFilter from "../components/ContinentFilter"
 
 const CountriesPage = ({ data }) => {
+  const [continentSelected, setContinentSelected] = useState()
+
   const { wpPage: pageData, allWpPage: countriesData } = data
 
   // secondary theme used in the MobileNav component
@@ -22,7 +25,9 @@ const CountriesPage = ({ data }) => {
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageContent>
-          <Countries data={countriesData} />
+          <ContinentFilter setContinentSelected={setContinentSelected} />
+          <hr />
+          <Countries data={countriesData} continentSelected={continentSelected} />
         </PageContent>
       </div>
     </Layout>
@@ -54,6 +59,9 @@ export const countriesPageQuery = graphql`
           title
           link
           slug
+          continent {
+            name
+          }
           featuredImage {
             node {
               gatsbyImage(

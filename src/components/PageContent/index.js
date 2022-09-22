@@ -1,13 +1,11 @@
-import React, { useRef } from "react"
+import React from "react"
 import parse from "html-react-parser"
 // styles
 import * as styles from "./styles.module.scss"
 
-const PageContent = ({ data, children, currentPage }) => {
-  const ref = useRef()
-
+const PageContent = ({ data, children }) => {
   return (
-    <main id="main-container" ref={ref} className={styles.main}>
+    <main id="main-container" className={styles.main}>
       <div className={styles.mainWrapper}>
         {data?.title === "About" ? parse(`${data?.content}`) : null}
         {children}

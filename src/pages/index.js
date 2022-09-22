@@ -28,7 +28,7 @@ const IndexPage = () => {
     title: "latest articles",
     link: "/articles/",
     color: "black",
-    backgroundColor: "#EAEAEA",
+    backgroundColor: "white",
   }
   //second section properties
   const secondSection = {

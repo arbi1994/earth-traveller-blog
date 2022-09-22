@@ -41,7 +41,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          'Mukta\:200, 300, 400, 500, 600, 700, 800',
+          'Mukta\:300, 400, 500, 600, 700, 800',
           'Indie Flower',
           'Karma\:300, 400, 500, 600, 700'
         ],

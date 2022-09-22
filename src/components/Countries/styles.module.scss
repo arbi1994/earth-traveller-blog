@@ -4,9 +4,8 @@
   max-width: 100%;
   min-height: 100vh;
   @include flex(row, space-between, start);
-  padding-top: 10em;
+  padding-top: 5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
-  gap: 4rem;
   justify-items: center;
 }

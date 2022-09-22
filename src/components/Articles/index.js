@@ -1,13 +1,11 @@
 import React from "react"
-import { Link, useScrollRestoration } from "gatsby"
+import { Link } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
 // components
 import Card from "../Card"
 
 const Articles = ({ data }) => {
-  const wrapperScrollRestoration = useScrollRestoration(`articles-wrapper`)
-
   return (
     <div className={styles.wrapper}>
       {data.edges.length <= 0 ? (

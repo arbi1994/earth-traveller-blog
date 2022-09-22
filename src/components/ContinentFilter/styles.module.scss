@@ -1,0 +1,38 @@
+@use '../../sass/abstracts/' as *;
+@use '../../sass/base/' as *;
+
+.filter {
+  width: 100%;
+  min-height: 5em;
+  padding: 2em 0 4em 0;
+
+  &-wrapper {
+    width: 100%;
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+
+  &-button {
+    border: none;
+    background: none;
+    color: black;
+    font-size: 1.4rem;
+    font-family: $mukta;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      color: $lightBlue;
+    }
+  }
+
+  input {
+    visibility: hidden;
+  }
+
+  .active {
+    color: $lightBlue;
+  }
+}
