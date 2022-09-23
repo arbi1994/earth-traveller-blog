@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
 // components

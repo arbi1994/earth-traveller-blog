@@ -14,7 +14,7 @@ const Articles = ({ data }) => {
         </h3>
       ) : null}
       {data.edges.map(data => (
-        <Link key={data.node.id} to={data.node.link}>
+        <Link key={data.node.id} to={`/articles/${data.node.slug}`}>
           <Card data={data.node} />
         </Link>
       ))}

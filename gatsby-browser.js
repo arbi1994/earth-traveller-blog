@@ -10,6 +10,7 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
 
   // transform pathname string into an array so I can target each individual pathname
   const pathnameArr = pathname.split("/").slice(1, pathname.length)
+  // console.log(pathnameArr)
 
   if (
     (pathnameArr[0] === "articles" && pathnameArr[1] > 1) ||
@@ -20,7 +21,8 @@ exports.shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
 
   if (
     scrollToTopRoutes.includes(pathname) ||
-    (pathnameArr[0] === "countries" && pathnameArr[1] !== "")
+    (pathnameArr[0] === "countries" && pathnameArr[1] !== "") ||
+    (pathnameArr[0] === "articles" && pathnameArr[1] !== "") 
   ) {
     window.scrollTo(0, 0)
   }

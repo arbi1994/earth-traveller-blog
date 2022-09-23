@@ -49,6 +49,7 @@ export const articlesPageQuery = graphql`
           id
           title
           link
+          slug
           date(formatString: "MMM DD, YYYY")
           featuredImage {
             node {
