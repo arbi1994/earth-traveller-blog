@@ -2,7 +2,7 @@
 
 .wrapper {
   max-width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
   @include flex(row, space-between, start);
   padding-top: 5em;
   display: grid;

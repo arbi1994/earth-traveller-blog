@@ -10,7 +10,7 @@ h1 {
   font-weight: 500;
 }
 
-h1, h2, h3, h4, h5, h6, p{
+h1, h2, h3, h4, h5, h6, p, figcaption{
   font-family: $mukta;
 }
 
@@ -38,6 +38,7 @@ $font-sizes: (
   h4: clamp(2.4rem, 2.5vw, 4rem),
   h5: clamp(1.8rem, 2.5vw, 2.8rem),
   h6: clamp(1.2rem, 1.5vw, 1.6rem),
+  figcaption: clamp(1.2rem, 1.5vw, 1.6rem),
   p: clamp(1.6rem, 1.5vw, 1.8rem),
   dl: clamp(1.6rem, 1.5vw, 3rem),
 );

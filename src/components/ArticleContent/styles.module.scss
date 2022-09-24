@@ -1,0 +1,27 @@
+@use '../../sass/abstracts/' as *;
+
+.main-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 150px 2fr 1fr 50px;
+  padding: 5em 0;
+
+  @include media("<=tablet"){
+    @include flex(column, center, center);
+    padding: 5em 3em;
+  }
+
+  .main-content {
+    grid-column: 2/3;
+    padding-right: 5em;
+
+    @include media("<=tablet"){
+      padding-right: 0;
+    }
+
+    p {
+      font-weight: 300 !important;
+    }
+  }
+}
+

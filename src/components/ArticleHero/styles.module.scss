@@ -9,6 +9,12 @@
   z-index: 0;
   position: relative;
 
+  @include media("<=tablet"){
+    min-height: 51em;
+    @include flex(column, end, center);
+    padding: 0 3em;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -29,6 +35,10 @@
     transform: translateX(-50%);
     z-index: 1;
 
+    @include media("<=tablet"){
+      height: 100%;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -41,11 +51,15 @@
   }
 
   &-wrapper {
-    // border: 1px solid white;
     grid-column: 2/4;
     @include flex(column, end, start);
     padding-bottom: 3em;
     z-index: 2;
+
+    @include media("<=tablet"){
+      width: 100%;
+    }
+  
   }
 
   &-title {

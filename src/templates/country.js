@@ -46,6 +46,7 @@ export const countryPageQuery = graphql`
           id
           title
           link
+          slug
           featuredImage {
             node {
               gatsbyImage(

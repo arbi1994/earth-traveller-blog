@@ -1,17 +1,25 @@
 import React from "react"
 import { graphql } from "gatsby"
+// styles
+import * as styles from "../../pages/styles.module.scss"
 // components
 import Layout from "../../components/Layout"
 import ArticleHero from "../../components/ArticleHero"
+import ArticleContent from "../../components/ArticleContent"
 
 const ArticlePage = ({ data }) => {
-  const { wpPost: post } = data
-  console.log(post)
+  const { wpPost: post, wpPage: about } = data
+
+  // secondary theme used in the MobileNav component
+  const socialsTheme2 = {
+    positionClass: `${styles.secondaryIconWrapper}`,
+    color: `${styles.secondaryColor}`,
+  }
 
   return (
-    <Layout>
+    <Layout socialsTheme={socialsTheme2}>
       <ArticleHero data={post} />
-      <main style={{minHeight: '100vh'}}></main>
+      <ArticleContent data={post} aboutData={about} />
     </Layout>
   )
 }
@@ -27,6 +35,9 @@ export const articlePageQuery = graphql`
         node {
           firstName
           lastName
+          avatar {
+            url
+          }
         }
       }
       date(formatString: "DD MMM YYYY")
@@ -46,6 +57,22 @@ export const articlePageQuery = graphql`
         }
       }
       content
+    }
+    wpPage(slug: { eq: "about" }) {
+      id
+      avatarImage {
+        avatarImage {
+          gatsbyImage(
+            width: 300
+            quality: 100
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+          )
+        }
+      }
+      authorIntroduction {
+        content
+      }
     }
   }
 `

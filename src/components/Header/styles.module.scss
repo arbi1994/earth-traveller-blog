@@ -10,7 +10,7 @@
   @include flex(row, center, center);
   text-transform: uppercase;
   z-index: 5;
-  transition: all .35s ease-in-out 0.05s;
+  transition: all .35s ease-in-out;
 
   @include media("<=SMdesktop") {
     @include flex(row, space-between, center);

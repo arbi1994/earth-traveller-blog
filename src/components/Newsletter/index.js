@@ -3,13 +3,33 @@ import React from "react"
 import * as styles from "./styles.module.scss"
 
 const Newsletter = () => {
+  const url = typeof window !== "undefined" ? window.location.pathname : ""
+  console.log(url)
+
+  const newsletterStyle = () => {
+    if (url !== "/") return `${styles.newsletter} ${styles.newsletterArticle}`
+    return styles.newsletter
+  }
+
+  const formStyle = () => {
+    if (url !== "/") return styles.newsletterFormArticle
+    return 
+  }
+
+  const buttonStyle = () => {
+    if (url !== "/") return styles.btnArticle
+    return 
+  }
+
   return (
-    <div className={styles.newsletter}>
+    <div className={newsletterStyle()}>
       <div className={styles.newsletterHeading}>
-        <h3>Subscribe now</h3>
-        <h5>So you don't miss any news on my travel experience</h5>
+        {url !== "/" ? <h4>Subscribe</h4> : <h3>Subscribe now</h3>}
+        {url !== "/" ? null : (
+          <h5>So you don't miss any news on my travel experience</h5>
+        )}
       </div>
-      <form className={styles.newsletterForm}>
+      <form className={formStyle()}>
         <div className={styles.newsletterWrapper}>
           <input type="text" id="name" name="name" placeholder="Your name" />
           <hr />
@@ -20,7 +40,7 @@ const Newsletter = () => {
             placeholder="Your email"
           />
         </div>
-        <button type="submit">Subscribe</button>
+        <button className={buttonStyle()} type="submit">Subscribe</button>
       </form>
     </div>
   )

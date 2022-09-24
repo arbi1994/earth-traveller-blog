@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 // styles
 import * as styles from "./styles.module.scss"
 
-const PageHero = ({ data }) => {
+const PageHero = ({ data, currentPage }) => {
 
   return (
     <section className={styles.hero}>
@@ -13,7 +13,7 @@ const PageHero = ({ data }) => {
         alt={data?.title}
       />
       <div className={styles.title}>
-        <h4>{data?.title}</h4>
+        <h4>{data?.title}{currentPage > 1 ? ' / ' + currentPage : null}</h4>
         <hr />
       </div>
     </section>

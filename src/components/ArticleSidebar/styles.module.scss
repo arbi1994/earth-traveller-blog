@@ -1,0 +1,68 @@
+@use '../../sass/abstracts/' as *;
+
+.aside-wrapper {
+  min-height: 100vh;
+  grid-column: 3/4;
+  border-left: 0.5px solid rgba(230, 230, 230, 0.5);
+  padding-left: 5em;
+
+  @include media("<=tablet"){
+    border: none;
+    padding: 0;
+    min-height: 80vh;
+    width: 100%;
+    padding: 10em 0 0 0;
+  }
+
+  .aside-inner-wrapper {
+    width: 100%;
+    height: 100%;
+
+    hr {
+      border: none;
+      height: 1px;
+      background: rgba(230, 230, 230, 0.5);
+      margin: 5em 0;
+    }
+  }
+
+  .aside-author {
+    width: 100%;
+    min-height: 10em;
+    @include flex(column, center, center);
+
+    .author-image {
+      width: 100%;
+      
+      .image {
+        height: 25em;
+
+        @include media("<=phoneL") {
+          height: 20em;
+        }
+      }
+    }
+
+    .author-description {
+      line-height: 25px;
+      padding: 2em 0;
+      text-align: center;
+    }
+
+    .author-btn {
+      width: 100%;
+      min-height: 3em;
+      font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+      background: $lightBlue;
+      color: white;
+      letter-spacing: 2px;
+      transition: letter-spacing 0.35s ease;
+      @include flex(row, center, center);
+
+      &:hover {
+        letter-spacing: 1px;
+        transition: letter-spacing 0.35s ease;
+      }
+    }
+  }
+}

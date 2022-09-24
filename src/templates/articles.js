@@ -22,9 +22,9 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
-      <PageHero data={pageData} />
+      <PageHero data={pageData} currentPage={currentPage} />
       <div className={styles.wrapper}>
-        <PageIntroduction data={pageData} />
+        {currentPage > 1 ? null : <PageIntroduction data={pageData} />}
         <PageContent currentPage={currentPage}>
           <Articles data={articles} currentPage={currentPage} />
           <Pagination totalPages={numPages} currentPage={currentPage} />
