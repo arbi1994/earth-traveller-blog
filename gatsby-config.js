@@ -34,10 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `earthtraveller.in`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: true,
+        url: process.env.WPGRAPHQL_URL || `https://earthtraveller.in/graphql`,
       },
     },
     {
