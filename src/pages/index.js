@@ -3,7 +3,7 @@ import * as React from "react"
 import "../sass/index.scss"
 import * as styles from "./styles.module.scss"
 // components
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import SectionLayout from "../components/SectionLayout"
 import LatestArticles from "../components/LatestArticles"
