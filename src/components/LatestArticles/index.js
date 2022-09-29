@@ -10,7 +10,7 @@ import "swiper/css/lazy"
 // import required modules
 import { EffectCoverflow, Navigation, Lazy } from "swiper"
 // components
-import Thumbnail from "./thumbnail"
+import Thumbnail from "./Thumbnail"
 // hooks
 import { useArticlesQuery } from "../../hooks/useArticlesQuery"
 import useWindowSize from "../../hooks/useWindowSize"
