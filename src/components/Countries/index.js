@@ -20,12 +20,12 @@ const Countries = ({ data, continentSelected }) => {
     <div className={styles.wrapper}>
       {continentSelected === "show all"
         ? data?.edges?.map(country => (
-            <Link key={country?.node?.id} to={country?.node?.link}>
+            <Link key={country?.node?.id} to={country?.node?.uri}>
               <Card data={country?.node} pathname={window.location.pathname} />
             </Link>
           ))
         : countries?.map(country => (
-            <Link key={country?.node?.id} to={country?.node?.link}>
+            <Link key={country?.node?.id} to={country?.node?.uri}>
               <Card data={country?.node} pathname={window.location.pathname} />
             </Link>
           ))}

@@ -57,7 +57,7 @@ export const countriesPageQuery = graphql`
         node {
           id
           title
-          link
+          uri
           slug
           continent {
             name
