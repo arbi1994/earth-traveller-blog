@@ -9,7 +9,6 @@ import PageHero from "../components/PageHero"
 import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
 import Articles from "../components/Articles"
-import Pagination from "../components/Pagination"
 
 const Country = ({ data }) => {
   const { wpPage: pageData, allWpPost: articles } = data
@@ -28,7 +27,6 @@ const Country = ({ data }) => {
         <PageIntroduction data={pageData} />
         <PageContent>
           <Articles data={articles} />
-          {/* <Pagination totalPages={numPages} currentPage={currentPage} /> */}
         </PageContent>
       </div>
     </Layout>

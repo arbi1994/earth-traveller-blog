@@ -3,7 +3,7 @@ module.exports = {
     title: `Earth Traveller`,
     description: `Another travel blog`,
     author: `@arbershyti`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `http://earth-traveller.local`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -34,7 +34,9 @@ module.exports = {
     { 
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `http://earth-traveller.local/graphql`
+        url: 
+          process.env.WPGRAPHQL_URL ||
+          `https://earthtraveller.in/graphql`
       }
     },
     {

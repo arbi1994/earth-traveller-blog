@@ -8,6 +8,7 @@ const PageContent = ({ data, children }) => {
     <main id="main-container" className={styles.main}>
       <div className={styles.mainWrapper}>
         {data?.title === "About" ? parse(`${data?.content}`) : null}
+        {data?.title === "Gallery" ? parse(`${data?.content}`) : null}
         {children}
       </div>
     </main>

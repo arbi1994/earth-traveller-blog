@@ -3,7 +3,7 @@
   "private": true,
   "description": "A travel blog to document all my travel adventures",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Arber Shyti <arber.shytie@outlook.com>",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
