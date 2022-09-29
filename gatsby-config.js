@@ -31,24 +31,25 @@ module.exports = {
     //   },
     // },
     `gatsby-plugin-sass`,
-    { 
+    {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: 
-          process.env.WPGRAPHQL_URL ||
-          `https://earthtraveller.in/graphql`
-      }
+        baseUrl: `earthtraveller.in`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: true,
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          'Mukta\:300, 400, 500, 600, 700, 800',
-          'Indie Flower',
-          'Karma\:300, 400, 500, 600, 700'
+          "Mukta:300, 400, 500, 600, 700, 800",
+          "Indie Flower",
+          "Karma:300, 400, 500, 600, 700",
         ],
-        display: 'swap'
-      }
-    }
+        display: "swap",
+      },
+    },
   ],
 }
