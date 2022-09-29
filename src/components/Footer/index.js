@@ -25,9 +25,9 @@ const Footer = () => {
           </div>
           <hr style={styles.navigationDivider} />
           <ul className={styles.navigationContainer}>
-            {menu?.menuItems?.nodes?.map(({ id, url, label }) => (
+            {menu?.menuItems?.nodes?.map(({ id, uri, label }) => (
               <li key={id}>
-                <Link to={url}>{label}</Link>
+                <Link to={uri}>{label}</Link>
               </li>
             ))}
           </ul>

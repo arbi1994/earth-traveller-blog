@@ -20,6 +20,8 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
     color: `${socialsStyles.secondaryColor}`,
   }
 
+  console.log(pageData)
+
   return (
     <Layout socialsTheme={socialsTheme2}>
       <PageHero data={pageData} currentPage={currentPage} />
@@ -65,7 +67,7 @@ export const articlesPageQuery = graphql`
         }
       }
     }
-    wpPage(id: { eq: "cG9zdDoxOQ==" }) {
+    wpPage(id: { eq: "cG9zdDoxMg==" }) {
       id
       title
       content

@@ -13,7 +13,7 @@ export const useMenuQuery = () => {
         menuItems {
           nodes {
             id
-            url
+            uri
             label
           }
         }

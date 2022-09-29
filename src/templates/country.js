@@ -19,7 +19,6 @@ const Country = ({ data }) => {
     color: `${socialsStyles.secondaryColor}`,
   }
 
-  console.log(data)
   return (
     <Layout socialsTheme={socialsTheme2}>
       <PageHero data={pageData} />

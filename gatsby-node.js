@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             id
             title
-            link
+            uri
             slug
             featuredImage {
               node {
@@ -101,10 +101,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // create pages for each country
   allWpPage.edges.forEach(page => {
     const slug = page.node.slug
-    const link = page.node.link
+    const uri = page.node.uri
 
     actions.createPage({
-      path: link,
+      path: uri,
       component: require.resolve(`./src/templates/country.js`),
       context: { slug: slug },
     })

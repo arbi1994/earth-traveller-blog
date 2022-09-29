@@ -36,7 +36,7 @@ const CountriesPage = ({ data }) => {
 
 export const countriesPageQuery = graphql`
   query {
-    wpPage(id: { eq: "cG9zdDoyMA==" }) {
+    wpPage(id: { eq: "cG9zdDo2Mw==" }) {
       id
       title
       content
@@ -52,7 +52,7 @@ export const countriesPageQuery = graphql`
         }
       }
     }
-    allWpPage(filter: { wpParent: { node: { id: { eq: "cG9zdDoyMA==" } } } }) {
+    allWpPage(filter: { wpParent: { node: { id: { eq: "cG9zdDo2Mw==" } } } }) {
       edges {
         node {
           id

@@ -7,6 +7,8 @@ import * as styles from "./styles.module.scss"
 const Thumbnail = ({ data, images }) => {
   const [isMouseOver, setIsMouseOver] = useState(false)
 
+  // console.log(data)
+
   return (
     <>
       <Link

@@ -23,9 +23,9 @@ const MobileNav = ({ menuItems, setToggle, socialsTheme }) => {
         </button>
       </div>
       <div className={styles.mobileNavWrapper}>
-        {menuItems.nodes.map(({ id, url, label }) => (
+        {menuItems.nodes.map(({ id, uri, label }) => (
           <li key={id}>
-            <Link to={url} style={{ color: "black" }}>
+            <Link to={uri} style={{ color: "black" }}>
               {label}
             </Link>
           </li>
