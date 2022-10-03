@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 import PageHero from "../components/PageHero"
 import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
-import Gallery from '../components/Gallery'
+import Gallery from "../components/Gallery"
 
 const GalleryPage = ({ data }) => {
   const { wpPage: pageData, allWpMediaItem: mediaData } = data
@@ -50,9 +50,7 @@ export const galleryPageQuery = graphql`
         }
       }
     }
-    allWpMediaItem(
-      filter: { parentId: { eq: "cG9zdDoyMQ==" }, title: { ne: "hero" } }
-    ) {
+    allWpMediaItem(filter: { parentId: { eq: "cG9zdDo2Ng==" } }) {
       edges {
         node {
           id
