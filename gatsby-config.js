@@ -35,6 +35,9 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.WPGRAPHQL_URL || `https://earthtraveller.in/graphql`,
+        schema: {
+          requestConcurrency: 10,
+        }
       },
     },
     {
