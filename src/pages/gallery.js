@@ -23,7 +23,6 @@ const GalleryPage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
-        {/* <PageIntroduction data={pageData} /> */}
         <PageContent>
           <Gallery data={photos} />
         </PageContent>
