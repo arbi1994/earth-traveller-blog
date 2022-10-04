@@ -6,6 +6,7 @@ import * as styles from "../../pages/styles.module.scss"
 import Layout from "../../components/Layout"
 import ArticleHero from "../../components/ArticleHero"
 import ArticleContent from "../../components/ArticleContent"
+import Commenting from '../../components/Commenting'
 
 const ArticlePage = ({ data }) => {
   const { wpPost: post, wpPage: about } = data
@@ -20,6 +21,7 @@ const ArticlePage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <ArticleHero data={post} />
       <ArticleContent data={post} aboutData={about} />
+      <Commenting />
     </Layout>
   )
 }
