@@ -10,8 +10,8 @@ import PageContent from "../components/PageContent"
 import Gallery from "../components/Gallery"
 
 const GalleryPage = ({ data }) => {
-  const { wpPage: pageData, allWpMediaItem: mediaData } = data
-  const { edges: photos } = mediaData
+  const { wpPage: pageData, allWpPost: allPhotos } = data
+  const { edges: photos } = allPhotos
   console.log(photos)
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
@@ -55,7 +55,32 @@ export const galleryPageQuery = graphql`
         node {
           id
           title
+          link
+          mediaItemUrl
           gatsbyImage(width: 320, quality: 100, fit: COVER, layout: FULL_WIDTH)
+        }
+      }
+    }
+    allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { name: { eq: "Photos" } } } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          featuredImage {
+            node {
+              gatsbyImage(
+                width: 320
+                quality: 100
+                fit: COVER
+                layout: FULL_WIDTH
+              )
+              mediaItemUrl
+              filename
+            }
+          }
         }
       }
     }

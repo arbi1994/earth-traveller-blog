@@ -37,7 +37,7 @@ module.exports = {
         url: process.env.WPGRAPHQL_URL || `https://earthtraveller.in/graphql`,
         schema: {
           requestConcurrency: 10,
-        }
+        },
       },
     },
     {
@@ -51,5 +51,6 @@ module.exports = {
         display: "swap",
       },
     },
+    // "gatsby-theme-gallery",
   ],
 }
