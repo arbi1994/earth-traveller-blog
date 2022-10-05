@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql } from "gatsby"
 // styles
 import * as styles from "./styles.module.scss"
@@ -8,9 +8,13 @@ import PageHero from "../components/PageHero"
 import PageContent from "../components/PageContent"
 import Countries from "../components/Countries"
 import ContinentFilter from "../components/ContinentFilter"
+// hooks
+import useScrollPosition from "../hooks/useScrollPosition"
 
 const CountriesPage = ({ data }) => {
   const [continentSelected, setContinentSelected] = useState()
+  // scroll position
+  const scrollPosition = useScrollPosition()
 
   const { wpPage: pageData, allWpPage: countriesData } = data
 
@@ -25,9 +29,15 @@ const CountriesPage = ({ data }) => {
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageContent>
-          <ContinentFilter setContinentSelected={setContinentSelected} />
+          <ContinentFilter
+            setContinentSelected={setContinentSelected}
+            scrollPosition={scrollPosition}
+          />
           <hr />
-          <Countries data={countriesData} continentSelected={continentSelected} />
+          <Countries
+            data={countriesData}
+            continentSelected={continentSelected}
+          />
         </PageContent>
       </div>
     </Layout>

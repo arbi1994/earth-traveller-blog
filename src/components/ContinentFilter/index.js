@@ -3,20 +3,24 @@ import React, { useState, useEffect } from "react"
 import * as styles from "./styles.module.scss"
 // hooks
 import { useTagsQuery } from "../../hooks/useTagsQuery"
+import useWindowSize from "../../hooks/useWindowSize"
 
-const ContinentFilter = ({ setContinentSelected }) => {
+const ContinentFilter = ({ setContinentSelected, scrollPosition }) => {
   const [selected, setSelected] = useState("show all")
+  const [scrollYOffset, setScrollYOffset] = useState()
+  const [navbarHeight, setNavbarHeight] = useState(0)
+  const [width] = useWindowSize()
   // tags data
   const { allWpTag: data } = useTagsQuery()
   const { edges: tags } = data
 
+  // Save data to sessionStorage
   useEffect(() => {
-    // Save data to sessionStorage
     sessionStorage.setItem("continent-selected", selected)
   }, [selected])
 
+  // Get saved data from sessionStorage
   useEffect(() => {
-    // Get saved data from sessionStorage
     let data = sessionStorage.getItem("continent-selected")
     setContinentSelected(data)
   }, [selected])
@@ -24,6 +28,30 @@ const ContinentFilter = ({ setContinentSelected }) => {
   const handleChange = e => {
     setSelected(e.target.value)
   }
+
+  const handleClick = e => {
+    if (e.target) {
+      window.scrollTo({ top: scrollYOffset, left: 0, behavior: "smooth" })
+    }
+  }
+
+  useEffect(() => {
+    const navbar = document.getElementById("header")
+    const pageHero = document.getElementById("page-hero")
+
+    if (navbar !== null) {
+      navbar.addEventListener("transitionend", () => {
+        setNavbarHeight(navbar.getBoundingClientRect().height)
+        setScrollYOffset(
+          pageHero.getBoundingClientRect().height -
+            navbar.getBoundingClientRect().height
+        )
+      })
+    }
+  }, [width, scrollPosition])
+
+  console.log("navbarHeight = ", navbarHeight)
+  console.log("scrollYOffset = ", scrollYOffset)
 
   return (
     <div className={styles.filter}>
@@ -35,6 +63,7 @@ const ContinentFilter = ({ setContinentSelected }) => {
           value="show all"
           checked={selected === "show all"}
           onChange={handleChange}
+          onClick={handleClick}
         />
         <label
           htmlFor="show all"
@@ -54,6 +83,7 @@ const ContinentFilter = ({ setContinentSelected }) => {
               value={tag?.node?.name}
               checked={selected === tag?.node?.name}
               onChange={handleChange}
+              onClick={handleClick}
             />
             <label
               htmlFor={tag?.node?.name}

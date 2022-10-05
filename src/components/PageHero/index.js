@@ -6,7 +6,7 @@ import * as styles from "./styles.module.scss"
 const PageHero = ({ data, currentPage }) => {
 
   return (
-    <section className={styles.hero}>
+    <section id="page-hero" className={styles.hero}>
       <GatsbyImage
         className={styles.heroImage}
         image={data?.featuredImage?.node?.gatsbyImage}

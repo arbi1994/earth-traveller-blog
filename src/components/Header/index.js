@@ -35,6 +35,7 @@ const Header = ({ socialsTheme }) => {
     <header
       ref={ref}
       className={`${styles.header} ${scrollPosition > 0 ? styles.scrolled : null}`}
+      id={scrollPosition > 0 ? 'header-scrolled' : 'header'}
     >
       <Logo scrollPosition={scrollPosition} siteMetadata={siteMetadata} />
       <Navbar
