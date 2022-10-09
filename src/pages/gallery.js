@@ -8,6 +8,7 @@ import PageHero from "../components/PageHero"
 import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
 import Gallery from "../components/Gallery"
+import SEO from "../components/seo"
 
 const GalleryPage = ({ data }) => {
   const { wpPage: pageData, allWpPost: allPhotos } = data
@@ -21,6 +22,11 @@ const GalleryPage = ({ data }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={pageData.title}
+        description="A gallery page to illustrate all the photos that best represent each country visited"
+        slug={pageData.slug}
+      />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageContent>
@@ -38,6 +44,7 @@ export const galleryPageQuery = graphql`
       title
       content
       status
+      slug
       featuredImage {
         node {
           gatsbyImage(

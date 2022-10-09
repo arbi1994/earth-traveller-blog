@@ -9,7 +9,7 @@ import SectionLayout from "../components/SectionLayout"
 import LatestArticles from "../components/LatestArticles"
 import LatestCountries from "../components/LatestCountries"
 import NewsletterSection from "../components/NewsletterSection"
-// import Seo from "../components/seo"
+import SEO from "../components/seo"
 
 const IndexPage = () => {
   // theme used in the homepage only
@@ -40,7 +40,7 @@ const IndexPage = () => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
-      {/* <Seo title="Home" /> */}
+      <SEO title="Home" />
       <Hero socialsTheme={socialsTheme1} />
       <SectionLayout props={firstSection}>
         <LatestArticles />

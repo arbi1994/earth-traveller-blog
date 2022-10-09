@@ -3,7 +3,7 @@ module.exports = {
     title: `Earth Traveller`,
     description: `Another travel blog`,
     author: `@arbershyti`,
-    siteUrl: `http://earth-traveller.local`,
+    siteUrl: `https://earth-traveller-blog.vercel.app/`,
   },
   plugins: [
     `gatsby-plugin-image`,

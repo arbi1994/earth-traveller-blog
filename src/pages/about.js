@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 // styles
-import * as styles from './styles.module.scss'
+import * as styles from "./styles.module.scss"
 // components
 import Layout from "../components/Layout"
 import PageHero from "../components/PageHero"
 import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
+import SEO from "../components/seo"
 
 const AboutPage = ({ data }) => {
   const { wpPage: pageData } = data
@@ -19,6 +20,11 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={pageData.title}
+        description="About page"
+        slug={pageData.slug}
+      />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageIntroduction data={pageData} />
@@ -33,6 +39,7 @@ export const pageQuery = graphql`
     wpPage(title: { eq: "About" }) {
       id
       title
+      slug
       avatarImage {
         avatarImage {
           id

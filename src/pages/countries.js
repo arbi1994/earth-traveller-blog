@@ -8,6 +8,7 @@ import PageHero from "../components/PageHero"
 import PageContent from "../components/PageContent"
 import Countries from "../components/Countries"
 import ContinentFilter from "../components/ContinentFilter"
+import SEO from "../components/seo"
 // hooks
 import useScrollPosition from "../hooks/useScrollPosition"
 
@@ -26,6 +27,11 @@ const CountriesPage = ({ data }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={pageData.title}
+        description="Filter each country visited by selecting a continent"
+        slug={pageData.slug}
+      />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageContent>
@@ -51,6 +57,7 @@ export const countriesPageQuery = graphql`
       title
       content
       status
+      slug
       featuredImage {
         node {
           gatsbyImage(

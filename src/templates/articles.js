@@ -10,6 +10,7 @@ import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
 import Articles from "../components/Articles"
 import Pagination from "../components/Pagination"
+import SEO from "../components/seo"
 
 const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
   const { wpPage: pageData, allWpPost: articles } = data
@@ -20,10 +21,13 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
     color: `${socialsStyles.secondaryColor}`,
   }
 
-  console.log(pageData)
-
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={pageData.title}
+        description="Articles page"
+        slug={pageData.slug}
+      />
       <PageHero data={pageData} currentPage={currentPage} />
       <div className={styles.wrapper}>
         {currentPage > 1 ? null : <PageIntroduction data={pageData} />}
@@ -72,6 +76,7 @@ export const articlesPageQuery = graphql`
       title
       content
       status
+      slug
       featuredImage {
         node {
           gatsbyImage(

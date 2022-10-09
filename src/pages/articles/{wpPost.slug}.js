@@ -6,7 +6,8 @@ import * as styles from "../../pages/styles.module.scss"
 import Layout from "../../components/Layout"
 import ArticleHero from "../../components/ArticleHero"
 import ArticleContent from "../../components/ArticleContent"
-import Commenting from '../../components/Commenting'
+import Commenting from "../../components/Commenting"
+import SEO from "../../components/seo"
 
 const ArticlePage = ({ data }) => {
   const { wpPost: post, wpPage: about } = data
@@ -19,6 +20,11 @@ const ArticlePage = ({ data }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={post.title}
+        description="Article page"
+        slug={`articles/${post.slug}`}
+      />
       <ArticleHero data={post} />
       <ArticleContent data={post} aboutData={about} />
       <Commenting />
@@ -33,6 +39,7 @@ export const articlePageQuery = graphql`
     wpPost(id: { eq: $id }) {
       id
       title
+      slug
       author {
         node {
           firstName

@@ -9,6 +9,7 @@ import PageHero from "../components/PageHero"
 import PageIntroduction from "../components/PageIntroduction"
 import PageContent from "../components/PageContent"
 import Articles from "../components/Articles"
+import SEO from "../components/seo"
 
 const Country = ({ data }) => {
   const { wpPage: pageData, allWpPost: articles } = data
@@ -21,6 +22,11 @@ const Country = ({ data }) => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
+      <SEO
+        title={pageData.title}
+        description={`All articles about ${pageData.title}`}
+        slug={`countries/${pageData.slug}`}
+      />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
         <PageIntroduction data={pageData} />
@@ -63,6 +69,7 @@ export const countryPageQuery = graphql`
       title
       content
       status
+      slug
       featuredImage {
         node {
           gatsbyImage(
