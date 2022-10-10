@@ -11,10 +11,13 @@ const useSiteMetadata = () => {
           siteUrl
         }
       }
+      favicon: file(name: { eq: "favicon" }) {
+        publicURL
+      }
     }
   `)
 
-  return data.site.siteMetadata
+  return data
 }
 
 export default useSiteMetadata

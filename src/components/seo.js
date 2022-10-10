@@ -5,16 +5,20 @@ import PropTypes from "prop-types"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
 const SEO = ({ title, description, image, slug, children }) => {
+  const { site, favicon } = useSiteMetadata()
+
   const {
     title: defaultTitle,
     description: defaultDescription,
     siteUrl,
-  } = useSiteMetadata()
+  } = site.siteMetadata
+
+  const { publicURL } = favicon
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    url: `${siteUrl}/${slug || ``}`,
+    url: `${siteUrl}${slug || ``}`,
   }
 
   return (
@@ -25,6 +29,15 @@ const SEO = ({ title, description, image, slug, children }) => {
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <link rel="canonical" href={`${seo.url}`} />
+      <link rel="shortcut icon" href={publicURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@earth_traveller" />
+      <meta name="og:title" content={seo.title} />
+      <meta name="og:description" content={seo.description} />
+      <meta name="og:image" content={`${image}`} />
+      <meta name="og:type" content="website" />
+      <meta name="og:url" content={`${seo.url}`} />
+      <meta name="og:site_name" content={seo.title} />
       {children}
     </Helmet>
   )

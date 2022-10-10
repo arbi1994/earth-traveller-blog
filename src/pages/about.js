@@ -23,6 +23,7 @@ const AboutPage = ({ data }) => {
       <SEO
         title={pageData.title}
         description="About page"
+        image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
       <PageHero data={pageData} />
@@ -61,6 +62,7 @@ export const pageQuery = graphql`
             layout: FIXED
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
     }

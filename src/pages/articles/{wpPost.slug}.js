@@ -8,9 +8,13 @@ import ArticleHero from "../../components/ArticleHero"
 import ArticleContent from "../../components/ArticleContent"
 import Commenting from "../../components/Commenting"
 import SEO from "../../components/seo"
+// hooks
+import useSiteMetadata from "../../hooks/useSiteMetadata"
 
 const ArticlePage = ({ data }) => {
   const { wpPost: post, wpPage: about } = data
+  const { site } = useSiteMetadata()
+  const { siteUrl } = site.siteMetadata
 
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
@@ -22,9 +26,20 @@ const ArticlePage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <SEO
         title={post.title}
-        description="Article page"
+        description={post.content}
+        image={post.featuredImage.node.mediaItemUrl}
         slug={`articles/${post.slug}`}
-      />
+      >
+        <script type="application/ld+json">
+          {`{
+						'@context': 'https://schema.org',
+						'@type': 'LiveBlogPosting',
+						'@id': '${siteUrl}articles/${post.slug}',
+						'headline': ${post.title},
+						'description': ${post.content}
+					}`}
+        </script>
+      </SEO>
       <ArticleHero data={post} />
       <ArticleContent data={post} aboutData={about} />
       <Commenting />
@@ -63,6 +78,7 @@ export const articlePageQuery = graphql`
             layout: FULL_WIDTH
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
       content

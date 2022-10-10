@@ -30,6 +30,7 @@ const CountriesPage = ({ data }) => {
       <SEO
         title={pageData.title}
         description="Filter each country visited by selecting a continent"
+        image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
       <PageHero data={pageData} />
@@ -66,6 +67,7 @@ export const countriesPageQuery = graphql`
             layout: FIXED
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
     }

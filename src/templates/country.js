@@ -25,6 +25,7 @@ const Country = ({ data }) => {
       <SEO
         title={pageData.title}
         description={`All articles about ${pageData.title}`}
+        image={pageData.featuredImage.node.mediaItemUrl}
         slug={`countries/${pageData.slug}`}
       />
       <PageHero data={pageData} />
@@ -78,6 +79,7 @@ export const countryPageQuery = graphql`
             layout: FIXED
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
     }

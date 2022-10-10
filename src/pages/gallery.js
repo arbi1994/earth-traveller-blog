@@ -13,7 +13,7 @@ import SEO from "../components/seo"
 const GalleryPage = ({ data }) => {
   const { wpPage: pageData, allWpPost: allPhotos } = data
   const { edges: photos } = allPhotos
-  console.log(photos)
+
   // secondary theme used in the MobileNav component
   const socialsTheme2 = {
     positionClass: `${styles.secondaryIconWrapper}`,
@@ -25,6 +25,7 @@ const GalleryPage = ({ data }) => {
       <SEO
         title={pageData.title}
         description="A gallery page to illustrate all the photos that best represent each country visited"
+        image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
       <PageHero data={pageData} />
@@ -53,6 +54,7 @@ export const galleryPageQuery = graphql`
             layout: FIXED
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
     }

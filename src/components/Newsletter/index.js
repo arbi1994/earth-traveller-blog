@@ -4,7 +4,6 @@ import * as styles from "./styles.module.scss"
 
 const Newsletter = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
-  console.log(url)
 
   const newsletterStyle = () => {
     if (url !== "/") return `${styles.newsletter} ${styles.newsletterArticle}`
@@ -13,12 +12,12 @@ const Newsletter = () => {
 
   const formStyle = () => {
     if (url !== "/") return styles.newsletterFormArticle
-    return 
+    return
   }
 
   const buttonStyle = () => {
     if (url !== "/") return styles.btnArticle
-    return 
+    return
   }
 
   return (
@@ -40,7 +39,9 @@ const Newsletter = () => {
             placeholder="Your email"
           />
         </div>
-        <button className={buttonStyle()} type="submit">Subscribe</button>
+        <button className={buttonStyle()} type="submit">
+          Subscribe
+        </button>
       </form>
     </div>
   )

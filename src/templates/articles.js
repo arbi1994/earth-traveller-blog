@@ -26,6 +26,7 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
       <SEO
         title={pageData.title}
         description="Articles page"
+        image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
       <PageHero data={pageData} currentPage={currentPage} />
@@ -85,6 +86,7 @@ export const articlesPageQuery = graphql`
             layout: FIXED
             placeholder: BLURRED
           )
+          mediaItemUrl
         }
       }
       wpChildren {
