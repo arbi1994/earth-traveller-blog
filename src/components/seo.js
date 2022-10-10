@@ -30,12 +30,14 @@ const SEO = ({ title, description, image, slug, children }) => {
       <meta name="description" content={seo.description} />
       <link rel="canonical" href={`${seo.url}`} />
       <link rel="shortcut icon" href={publicURL} />
-      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@earth_traveller" />
-      <meta name="og:title" content={title} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:image" content={`${image}`} />
+      <meta name="og:title" content={seo.title} />
       <meta name="og:description" content={description} />
       <meta name="og:image" content={`${image}`} />
-      <meta name="og:type" content="website" />
+      <meta name="og:type" content="article" />
       <meta name="og:url" content={`${seo.url}`} />
       <meta name="og:site_name" content={seo.title} />
       {children}
