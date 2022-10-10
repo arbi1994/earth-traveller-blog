@@ -32,8 +32,8 @@ const SEO = ({ title, description, image, slug, children }) => {
       <link rel="shortcut icon" href={publicURL} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@earth_traveller" />
-      <meta name="og:title" content={seo.title} />
-      <meta name="og:description" content={seo.description} />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
       <meta name="og:image" content={`${image}`} />
       <meta name="og:type" content="website" />
       <meta name="og:url" content={`${seo.url}`} />
