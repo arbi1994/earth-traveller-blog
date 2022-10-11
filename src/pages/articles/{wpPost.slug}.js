@@ -25,10 +25,10 @@ const ArticlePage = ({ data }) => {
   return (
     <Layout socialsTheme={socialsTheme2}>
       <SEO
-        title={post.title}
-        description={post.content}
-        image={post.featuredImage.node.mediaItemUrl}
-        slug={`articles/${post.slug}`}
+        title={post?.title}
+        description={post?.content}
+        image={post?.featuredImage?.node?.mediaItemUrl}
+        slug={`articles/${post?.slug}`}
       >
         <script type="application/ld+json">
           {`{

@@ -23,8 +23,10 @@ const SEO = ({ title, description, image, slug, children }) => {
 
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${defaultTitle}`}
+      titleTemplate={`%s`}
+      defaultTitle={seo.title}
     >
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
