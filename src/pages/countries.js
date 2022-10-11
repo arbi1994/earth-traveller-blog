@@ -29,7 +29,7 @@ const CountriesPage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <SEO
         title={pageData.title}
-        description="Filter each country visited by selecting a continent"
+        description={pageData?.meta_description?.metaDescription}
         image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
@@ -59,6 +59,9 @@ export const countriesPageQuery = graphql`
       content
       status
       slug
+      meta_description {
+        metaDescription
+      }
       featuredImage {
         node {
           gatsbyImage(

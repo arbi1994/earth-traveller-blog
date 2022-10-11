@@ -25,7 +25,7 @@ const ArticleList = ({ data, pageContext: { numPages, currentPage } }) => {
     <Layout socialsTheme={socialsTheme2}>
       <SEO
         title={pageData.title}
-        description="Articles page"
+        description={pageData?.meta_description?.metaDescription}
         image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
@@ -78,6 +78,9 @@ export const articlesPageQuery = graphql`
       content
       status
       slug
+      meta_description {
+        metaDescription
+      }
       featuredImage {
         node {
           gatsbyImage(

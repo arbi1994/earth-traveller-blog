@@ -21,10 +21,10 @@ const AboutPage = ({ data }) => {
   return (
     <Layout socialsTheme={socialsTheme2}>
       <SEO
-        title={pageData.title}
-        description="About page"
-        image={pageData.featuredImage.node.mediaItemUrl}
-        slug={pageData.slug}
+        title={pageData?.title}
+        description={pageData?.meta_description?.metaDescription}
+        image={pageData?.featuredImage?.node?.mediaItemUrl}
+        slug={pageData?.slug}
       />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
@@ -41,6 +41,9 @@ export const pageQuery = graphql`
       id
       title
       slug
+      meta_description {
+        metaDescription
+      }
       avatarImage {
         avatarImage {
           id

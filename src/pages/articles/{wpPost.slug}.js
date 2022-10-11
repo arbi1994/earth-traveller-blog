@@ -26,9 +26,9 @@ const ArticlePage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <SEO
         title={post?.title}
-        description={post?.content}
+        description={post?.meta_description?.metaDescription}
         image={post?.featuredImage?.node?.mediaItemUrl}
-        slug={`articles/${post?.slug}`}
+        slug={`/articles/${post?.slug}`}
       >
         <script type="application/ld+json">
           {`{
@@ -55,6 +55,9 @@ export const articlePageQuery = graphql`
       id
       title
       slug
+      meta_description {
+        metaDescription
+      }
       author {
         node {
           firstName

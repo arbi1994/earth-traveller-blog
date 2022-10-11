@@ -23,10 +23,10 @@ const Country = ({ data }) => {
   return (
     <Layout socialsTheme={socialsTheme2}>
       <SEO
-        title={pageData.title}
-        description={`All articles about ${pageData.title}`}
-        image={pageData.featuredImage.node.mediaItemUrl}
-        slug={`countries/${pageData.slug}`}
+        title={pageData?.title}
+        description={pageData?.meta_description?.metaDescription}
+        image={pageData?.featuredImage?.node?.mediaItemUrl}
+        slug={`countries/${pageData?.slug}`}
       />
       <PageHero data={pageData} />
       <div className={styles.wrapper}>
@@ -71,6 +71,9 @@ export const countryPageQuery = graphql`
       content
       status
       slug
+      meta_description {
+        metaDescription
+      }
       featuredImage {
         node {
           gatsbyImage(

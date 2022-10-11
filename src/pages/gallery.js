@@ -24,7 +24,7 @@ const GalleryPage = ({ data }) => {
     <Layout socialsTheme={socialsTheme2}>
       <SEO
         title={pageData.title}
-        description="A gallery page to illustrate all the photos that best represent each country visited"
+        description={pageData?.meta_description?.metaDescription}
         image={pageData.featuredImage.node.mediaItemUrl}
         slug={pageData.slug}
       />
@@ -46,6 +46,9 @@ export const galleryPageQuery = graphql`
       content
       status
       slug
+      meta_description {
+        metaDescription
+      }
       featuredImage {
         node {
           gatsbyImage(
