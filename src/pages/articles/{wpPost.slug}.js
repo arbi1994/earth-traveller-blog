@@ -34,9 +34,9 @@ const ArticlePage = ({ data }) => {
           {`{
 						'@context': 'https://schema.org',
 						'@type': 'LiveBlogPosting',
-						'@id': '${siteUrl}articles/${post.slug}',
-						'headline': ${post.title},
-						'description': ${post.content}
+						'@id': '${siteUrl}articles/${post?.slug}',
+						'headline': ${post?.title},
+						'description': ${post?.meta_description?.metaDescription}
 					}`}
         </script>
       </SEO>

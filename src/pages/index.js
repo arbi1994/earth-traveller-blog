@@ -40,7 +40,7 @@ const IndexPage = () => {
 
   return (
     <Layout socialsTheme={socialsTheme2}>
-      <SEO title="Home" />
+      <SEO title="Home" slug=""/>
       <Hero socialsTheme={socialsTheme1} />
       <SectionLayout props={firstSection}>
         <LatestArticles />
