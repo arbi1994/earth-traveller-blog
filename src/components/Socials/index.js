@@ -12,8 +12,10 @@ const Socials = ({ socialsTheme }) => {
   const { wpMenu } = useSocialsQuery()
 
   const displayedIcons = label => {
-    if (label === "Instagram") return <AiOutlineInstagram className={socialsTheme.color} />
-    if (label === "Facebook") return <FaFacebookF className={socialsTheme.color} />
+    if (label === "Instagram")
+      return <AiOutlineInstagram className={socialsTheme.color} />
+    if (label === "Facebook")
+      return <FaFacebookF className={socialsTheme.color} />
     if (label === "Twitter") return <FaTwitter className={socialsTheme.color} />
   }
 
@@ -27,7 +29,12 @@ const Socials = ({ socialsTheme }) => {
       <ul className={socialsTheme.positionClass}>
         {wpMenu.menuItems.nodes.map(node => (
           <li key={node.id}>
-            <a href={node.url} target="_blank" rel="noopener noreferrer">
+            <a
+              title={node.label}
+              href={node.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {displayedIcons(node.label)}
             </a>
           </li>

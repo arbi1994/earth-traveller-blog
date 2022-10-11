@@ -20,7 +20,7 @@
   .logo {
     position: absolute;
     width: 100px;
-    padding: 1em;
+    padding: 1.5em;
     @include flex(row, center, center);
 
     @include media("<=SMdesktop") {

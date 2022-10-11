@@ -28,7 +28,11 @@ const Navbar = ({ menu, scrollPosition, toggle, setToggle, socialsTheme }) => {
               .slice(0, menuItems.nodes.length / 2)
               .map(({ id, uri, label }) => (
                 <li key={id}>
-                  <Link to={uri} style={{ color: `${handleLinkColors()}` }}>
+                  <Link
+                    title={label}
+                    to={uri}
+                    style={{ color: `${handleLinkColors()}` }}
+                  >
                     {label}
                   </Link>
                 </li>
@@ -39,7 +43,11 @@ const Navbar = ({ menu, scrollPosition, toggle, setToggle, socialsTheme }) => {
               .slice(menuItems.nodes.length / 2)
               .map(({ id, uri, label }) => (
                 <li key={id}>
-                  <Link to={uri} style={{ color: `${handleLinkColors()}` }}>
+                  <Link
+                    title={label}
+                    to={uri}
+                    style={{ color: `${handleLinkColors()}` }}
+                  >
                     {label}
                   </Link>
                 </li>
