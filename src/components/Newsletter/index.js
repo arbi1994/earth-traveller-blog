@@ -13,6 +13,7 @@ const Newsletter = () => {
     result: null,
   })
 
+  //values destructured
   const { name, email } = state
 
   const newsletterStyle = () => {
@@ -45,7 +46,14 @@ const Newsletter = () => {
     e.preventDefault()
 
     const result = await addToMailchimp(email, { FNAME: name })
+
     setState({ result: result })
+
+    //reset inputs
+    const inputs = document.querySelectorAll("form input")
+    inputs.forEach(input => {
+      input.value = ""
+    })
   }
 
   return (
@@ -63,6 +71,7 @@ const Newsletter = () => {
             id="name"
             name="name"
             placeholder="Your name"
+            required
             onChange={handleChange}
           />
           <hr />
@@ -71,6 +80,7 @@ const Newsletter = () => {
             id="email"
             name="email"
             placeholder="Your email"
+            required
             onChange={handleChange}
           />
         </div>
