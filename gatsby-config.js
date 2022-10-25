@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Earth Traveller`,
@@ -51,6 +55,11 @@ module.exports = {
         display: "swap",
       },
     },
-    // "gatsby-theme-gallery",
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
+      },
+    },
   ],
 }

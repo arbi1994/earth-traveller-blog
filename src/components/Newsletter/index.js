@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
+import addToMailchimp from "gatsby-plugin-mailchimp"
 // styles
 import * as styles from "./styles.module.scss"
 
 const Newsletter = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : ""
+
+  //form states
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    result: null,
+  })
+
+  const { name, email } = state
 
   const newsletterStyle = () => {
     if (url !== "/") return `${styles.newsletter} ${styles.newsletterArticle}`
@@ -20,6 +30,24 @@ const Newsletter = () => {
     return
   }
 
+  const handleChange = e => {
+    const { name, value } = e.target
+
+    setState(() => {
+      return {
+        ...state,
+        [name]: value,
+      }
+    })
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+
+    const result = await addToMailchimp(email, { FNAME: name })
+    setState({ result: result })
+  }
+
   return (
     <div className={newsletterStyle()}>
       <div className={styles.newsletterHeading}>
@@ -28,15 +56,22 @@ const Newsletter = () => {
           <h5>So you don't miss any news on my travel experience</h5>
         )}
       </div>
-      <form className={formStyle()}>
+      <form className={formStyle()} onSubmit={handleSubmit}>
         <div className={styles.newsletterWrapper}>
-          <input type="text" id="name" name="name" placeholder="Your name" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            onChange={handleChange}
+          />
           <hr />
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Your email"
+            onChange={handleChange}
           />
         </div>
         <button className={buttonStyle()} type="submit">
